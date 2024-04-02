@@ -1,0 +1,17 @@
+[project]
+
+name = "physics-lib"
+description = "Libary to work with conversion of physical units using python"
+requires-python = ">=3.0"
+license = { file = "LICENSE.txt" }
+readme = "README.md"
+
+version = "1.0.0"
+
+
+keywords = [
+    "python",
+    "physics",
+    "lib",
+    "development"
+]
