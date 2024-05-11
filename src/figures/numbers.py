@@ -1,7 +1,6 @@
 ##################################################
 # Imports
 ##################################################
-from os.path import pat
 
 
 ##################################################
@@ -9,10 +8,7 @@ from os.path import pat
 ##################################################
 class SignificantFigures(object):
 
-    def __init__(self) -> None:
-        pass
-
-    def calculate_number_of_significant_figures(self, figure: int | float) -> dict:
+    def calculate_number_of_significant_figures(figure: int | float) -> dict:
         """
         This function is designed to take a number, it can either be a integer or a float, 
         and return the number of significant figures, as well as the figures in the number that are significant
@@ -31,7 +27,13 @@ class SignificantFigures(object):
         Returns:
             dict: Representing the number of significant figures and the figures that are significant
         """
+        number_of_significant_figures = list(str(figure))
+
+
         return {
-            'number of significant figures': figure,
+            'number of significant figures': number_of_significant_figures,
             'figures that are significant': [3, 4, 4, 5, 0]
         }
+    
+
+print(SignificantFigures.calculate_number_of_significant_figures(322))
