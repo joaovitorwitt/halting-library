@@ -1,0 +1,3 @@
+from src.figures.nooo import SignificantFigures
+
+print(SignificantFigures.calculate_number_of_significant_figures(123))
