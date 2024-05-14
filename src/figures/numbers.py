@@ -27,7 +27,12 @@ class SignificantFigures(object):
         Returns:
             dict: Representing the number of significant figures and the figures that are significant
         """
-        number_of_significant_figures = list(str(figure))
+
+        # input is an integer
+        if isinstance(figure, int):
+            number_of_significant_figures = list(str(figure))
+            
+            
 
 
         return {
