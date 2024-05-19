@@ -1,13 +1,14 @@
 [project]
 
-name = "physics-lib"
-description = "Libary to work with conversion of physical units using python"
+name = "halting"
+description = "Physics Library to manage physical units."
+version = "1.0.0"
+authors = [
+    {name = "João Vitor Witt", email = "joaovitorwitt2004@gmail.com"}
+]
 requires-python = ">=3.0"
 license = { file = "LICENSE.txt" }
 readme = "README.md"
-
-version = "1.0.0"
-
 
 keywords = [
     "python",
@@ -15,3 +16,12 @@ keywords = [
     "lib",
     "development"
 ]
+
+[project.urls]
+Homepage = "https://github.com/joaovitorwitt/physics-lib"
+Issues = "https://github.com/joaovitorwitt/physics-lib/issues"
+Pulls = "https://github.com/joaovitorwitt/physics-lib/pulls"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

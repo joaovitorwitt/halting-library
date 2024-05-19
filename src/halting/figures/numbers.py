@@ -88,3 +88,5 @@ def calculate_number_of_significant_figures(figure: int | float) -> dict:
 # print(calculate_number_of_significant_figures(900040000))
 # print(calculate_number_of_significant_figures(306050))
 print(calculate_number_of_significant_figures(40005000600))
+
+# https://packaging.python.org/en/latest/tutorials/packaging-projects/
