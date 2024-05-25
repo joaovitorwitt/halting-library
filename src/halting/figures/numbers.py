@@ -1,6 +1,7 @@
 ##################################################
 # Imports
 ##################################################
+import decimal
 # https://packaging.python.org/en/latest/tutorials/packaging-projects/
 
 ##################################################
@@ -56,16 +57,14 @@ class ManageFigures(object):
                         trailing_number_of_zeros += 1
                     else:
                         break
-            
                 return len(number_of_significant_figures) - trailing_number_of_zeros
-            
             else:
                 return len(number_of_significant_figures)
         
         elif isinstance(figure, float):
-            number_of_significant_figures = list(str(figure))
+            number_of_significant_figures = list(format(figure, 'f'))
             
-            if '.' in number_of_significant_figures[1]:
+            if '.' in number_of_significant_figures[1] and number_of_significant_figures[0] == '0':
                 for number in number_of_significant_figures:
                     if number == '0':
                         leading_number_of_zeros += 1
@@ -73,6 +72,8 @@ class ManageFigures(object):
                         continue
                     else:
                         break
+            elif number_of_significant_figures[0] != '0':
+                return len(number_of_significant_figures) - 1
             
             return ((len(number_of_significant_figures) - 1) - leading_number_of_zeros)
                         
@@ -96,3 +97,23 @@ class ManageFigures(object):
     # print(calculate_number_of_significant_figures(40005000600))
 
     # https://packaging.python.org/en/latest/tutorials/packaging-projects/
+
+    def convert_integer_to_scientific_notation(self, figure: int) -> float:
+        """
+        description
+
+        Args:
+
+        Returns:
+            float: the integer converted to a floating point value
+        """
+        to_list = list(str(figure))
+        to_list.insert(1, '.')
+        number_of_significant_figures = ManageFigures.calculate_number_of_significant_figures(to_list)
+
+        
+
+
+
+    def convert_scientific_notation_to_integer(self):
+        pass
