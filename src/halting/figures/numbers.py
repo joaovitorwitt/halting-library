@@ -8,12 +8,13 @@
 ##################################################
 class ManageFigures(object):
 
-    def calculate_number_of_significant_figures(figure: int | float) -> dict:
+    def calculate_number_of_significant_figures(self, figure: int | float) -> int:
         """
         Significant figures are the digits of a number that are meaningful in terms of accuracy or precision.
 
         This function is designed to take a number, it can either be a integer or a float, 
-        and return the number of significant figures, as well as the figures in the number that are significant
+        and return the number of significant figures, following the significant figures rules.
+        Non-zero digits are always significant, zeros between non-zero digits are always significant (9009)
 
         Args:
             figure (int | float): The number that we want to calculate
@@ -21,16 +22,14 @@ class ManageFigures(object):
         Usage:
             >>> from <module> import calculate_number_of_significant_figures
             >>> calculate_number_of_significant_figures(344.50)
-            >>> {
-            ...     'Number of Significant Figures': 5,
-            ...     'Significant Figures': [3,4,4,5,0]
-            >>> }
+            >>> 5
             
         Returns:
-            dict: Representing the number of significant figures and the figures that are significant
+            int: Representing the number of significant figures
         """
-
+        ##############################
         # Significant Figures Rules
+        ##############################
         # - non zero digits are Always significant
         # - zeros in between non-zero digits are always significant 
         # example: 80989
@@ -57,19 +56,25 @@ class ManageFigures(object):
                         trailing_number_of_zeros += 1
                     else:
                         break
-                
+            
                 return len(number_of_significant_figures) - trailing_number_of_zeros
             
-            elif number_of_significant_figures[0] == '0':
-                for number in number_of_significant_figures:
-                    if number == 0:
-                        leading_number_of_zeros += 1
-                    else:
-                        continue
-                return (len(number_of_significant_figures) - leading_number_of_zeros) * (-1)
+            else:
+                return len(number_of_significant_figures)
         
         elif isinstance(figure, float):
-            return figure
+            number_of_significant_figures = list(str(figure))
+            
+            if '.' in number_of_significant_figures[1]:
+                for number in number_of_significant_figures:
+                    if number == '0':
+                        leading_number_of_zeros += 1
+                    elif number == '.':
+                        continue
+                    else:
+                        break
+            
+            return ((len(number_of_significant_figures) - 1) - leading_number_of_zeros)
                         
                 
                 # if last number is zero

@@ -7,5 +7,7 @@ from unittest import TestCase
 # Numbers Test Case Implementation
 ##################################################
 class NumbersTestCase(TestCase):
-    pass
+    
+    def test_number_of_significant_figures(self):
+        pass
 
