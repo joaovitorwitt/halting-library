@@ -98,22 +98,22 @@ class ManageFigures(object):
 
     # https://packaging.python.org/en/latest/tutorials/packaging-projects/
 
-    def convert_integer_to_scientific_notation(self, figure: int) -> float:
-        """
-        description
+    # def convert_integer_to_scientific_notation(self, figure: int) -> float:
+    #     """
+    #     description
 
-        Args:
+    #     Args:
 
-        Returns:
-            float: the integer converted to a floating point value
-        """
-        to_list = list(str(figure))
-        to_list.insert(1, '.')
-        number_of_significant_figures = ManageFigures.calculate_number_of_significant_figures(to_list)
+    #     Returns:
+    #         float: the integer converted to a floating point value
+    #     """
+    #     to_list = list(str(figure))
+    #     to_list.insert(1, '.')
+    #     number_of_significant_figures = ManageFigures.calculate_number_of_significant_figures(to_list)
 
         
 
 
 
-    def convert_scientific_notation_to_integer(self):
-        pass
+    # def convert_scientific_notation_to_integer(self):
+    #     pass
