@@ -1,6 +1,6 @@
 /notes.txt
 /.env
-/.pypirc
+.pypirc
 
 # Byte-compiled / optimized / DLL files
 __pycache__
