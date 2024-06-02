@@ -2,7 +2,7 @@
 # Imports
 ##################################################
 from unittest import TestCase
-from halting.formulas.formulas import GeneralFormulas
+from formulas.formulas import GeneralFormulas
 
 ##################################################
 # General Formulas TestCase Implementation
