@@ -3,7 +3,6 @@
 ##################################################
 from math import pi
 
-
 ##################################################
 # Formulas Class Implementation
 ##################################################
@@ -20,14 +19,7 @@ class GeneralFormulas(object):
         Returns:
             the result of applying the calculations
         """
-        arr = []
-        
-        arr.append(len(str(height)))
-        arr.append(len(str(radius)))
-
-        arr.sort()
-
-        return round(height*pi*(pow(radius, 2)), arr[0])
+        return height*pi*(pow(radius, 2))
     
     
     def calculate_volume_of_a_sphere(self, radius: int | float) -> int | float:
