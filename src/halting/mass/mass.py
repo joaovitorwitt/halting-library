@@ -78,15 +78,14 @@ class MassConversion(object):
             >>> mass_conversion.convert_kilograms_to_tons(10000)
             10
         """
-        try:
-            if kilograms < 0:
-                raise ValueError("Negative values are not allowed.")
-            
-            tons = kilograms / 1000
-            return tons
-
-        except TypeError:
-            return f"Error: '{type(kilograms).__name__}' is not allowed, only integer or float values."
+        if not isinstance(kilograms, (int, float)):
+            raise TypeError(f"'{type(kilograms).__name__}' is not allowed, only integer or float")
+        
+        if kilograms < 0:
+            raise ValueError("Negative values are not allowed.")
+        
+        tons = kilograms / 1000
+        return tons
 
     def convert_tons_to_kilograms(self, tons: int | float) -> int | float:
         """
@@ -104,14 +103,14 @@ class MassConversion(object):
             >>> mass_conversion.convert_tons_to_kilograms(1)
             1000
         """
-        try:
-            if tons < 0:
-                raise ValueError("Negative values are not allowed.")
-            kilograms = tons * 1000
-            return kilograms
+        if not isinstance(tons, (int, float)):
+            raise TypeError(f"'{type(tons).__name__}' is not allowed, only integer or float")
         
-        except TypeError:
-            return f"Error: '{type(tons).__name__}' is not allowed, only integer or float values."
+        if tons < 0:
+            raise ValueError("Negative values are not allowed.")
+
+        kilograms = tons * 1000
+        return kilograms
     
     def convert_kilograms_to_grams(self, kilograms: int | float) -> int | float:
         """
@@ -129,16 +128,15 @@ class MassConversion(object):
             >>> mass_conversion.convert_kilograms_to_grams(1)
             1000
         """
-        try:
-            if kilograms < 0:
-                raise ValueError("Negative values are not allowed.")
-            
-            grams = kilograms * 1000
-            return grams
+        if not isinstance(kilograms, (int, float)):
+            raise TypeError(f"'{type(kilograms).__name__}' is not allowed, only integer or float")
+        
+        if kilograms < 0:
+            raise ValueError("Negative values are not allowed.")
+     
+        grams = kilograms * 1000
+        return grams
     
-        except TypeError:
-            return f"Error: '{type(kilograms).__name__}' is not allowed, only integer or float values."
-
     def convert_grams_to_milligrams(self, grams: int | float) -> int | float:
         """
         Convert grams to milligrams.
@@ -155,12 +153,13 @@ class MassConversion(object):
             >>> mass_conversion.convert_grams_to_milligrams(1)
             1000
         """
-        try:
-            if grams < 0:
-                raise ValueError("Negative values are not allowed.")
-
-            milligrams = grams * 1000    
-            return milligrams
+        if not isinstance(grams, (int, float)):
+            raise TypeError(f"'{type(grams).__name__}' is not allowed, only integer or float")
         
-        except TypeError:
-            return f"Error: '{type(grams).__name__}' is not allowed, only integer or float values."
+        if grams < 0:
+            raise ValueError("Negative values are not allowed.")            
+
+        milligrams = grams * 1000    
+        return milligrams
+        
+
