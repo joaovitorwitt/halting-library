@@ -1,29 +1,41 @@
+###############################################################################
+# Imports
+###############################################################################
 
 
-
+###############################################################################
+# Mass Conversion Class Implementation
+###############################################################################
 class MassConversion(object):
 
-    def convert_mg_to_g(self, mg: int | float) -> int | float:
+    def convert_milligrams_to_grams(self, milligrams: int | float) -> int | float:
         """
         Converts milligrams to grams.
-
         This function converts milligrams to grams by dividing the value by 1000.
 
         Args:
-            mg (int | float): The value of milligrams to be converted.
+            milligrams (int | float): The value of milligrams to be converted.
         
         Returns:
             int | float: The converted value as grams
 
-        Usage:
+        Example:
             >>> from halting.mass.mass import MassConversion
             >>> mass_conversion = MassConversion()
             >>> mass_conversion.convert_mg_to_g(1000)
             1
         """
-        return mg / 1000
-    
-    def convert_g_to_kg(self, g: int | float) -> int | float:
+        try:
+            if milligrams < 0:
+                raise ValueError("Negative values are not allowed.")
+            
+            grams = milligrams / 1000
+            return grams
+        
+        except TypeError:
+            return f"Error: '{type(milligrams).__name__}' is not allowed, only integer or float values."
+        
+    def convert_grams_to_kilograms(self, grams: int | float) -> int | float:
         """
         Converts grams to kilograms
 
@@ -31,34 +43,126 @@ class MassConversion(object):
         the standard SI unit, by dividing the value by 1000.
 
         Args:
-
+            grams (int | float): The value of grams to be converted.
+        
         Returns:
+            int | float: The value converted to kilograms.
 
-        Usage:
-            >>> from halting.mass.mass import MassConversion
+        Example:
+            >>> from src.halting.mass.mass import MassConversion
+            >>> mass_conversion = MassConversion()
+            >>> mass_conversion.convert_grams_to_kilograms(10000)
+            10
         """
-        return g / 1000
-    
-    def convert_kg_to_ton(self, kg: int | float) -> int | float:
-        """
-        divide the mass value by 1000
-        """
-        return kg / 1000
+        try:
+            if grams < 0:
+                raise ValueError("Negative values are not allowed.")
 
-    def convert_ton_to_kg(self, ton: int | float) -> int | float:
+            kilogramas = grams / 1000
+            return kilogramas
+
+        except TypeError:
+            return f"Error: '{type(grams).__name__}' is not allowed, only integer or float values."
+            
+    def convert_kilograms_to_tons(self, kilograms: int | float) -> int | float:
         """
-        multiply the mass value by 1000
+        Convert kilogram value to tons.
+        
+        Args:
+            kilgorams (int | float): The value of kilograms to be converted.
+        
+        Returns:
+            int | float: The converted value.
+        
+        Example:
+            >>> from src.halting.mass.mass import MassConversion
+            >>> mass_conversion = MassConversion()
+            >>> mass_conversion.convert_kilograms_to_tons(10000)
+            10
         """
-        return ton * 1000
+        try:
+            if kilograms < 0:
+                raise ValueError("Negative values are not allowed.")
+            
+            tons = kilograms / 1000
+            return tons
+
+        except TypeError:
+            return f"Error: '{type(kilograms).__name__}' is not allowed, only integer or float values."
+
+    def convert_tons_to_kilograms(self, tons: int | float) -> int | float:
+        """
+        Converts tons to kilograms by multiplying the ton value by 1000.
+        
+        Args:
+            tons (int | float): The value to be converted to kilograms.
+        
+        Returns:
+            int | float: The converted value.
+        
+        Example:
+            >>> from src.halting.mass.mass import MassConversion
+            >>> mass_conversion = MassConversion()
+            >>> mass_conversion.convert_tons_to_kilograms(1)
+            1000
+        """
+        try:
+            if tons < 0:
+                raise ValueError("Negative values are not allowed.")
+            kilograms = tons * 1000
+            return kilograms
+        
+        except TypeError:
+            return f"Error: '{type(tons).__name__}' is not allowed, only integer or float values."
     
-    def convert_kg_to_g(self, kg: int | float) -> int | float:
+    def convert_kilograms_to_grams(self, kilograms: int | float) -> int | float:
         """
-        multiply the mass value by 1000
+        Convert a value of kilograms to grams by multiplying by 1000.
+        
+        Args:
+            kilograms (int | float): The value of kilograms to be converted.
+        
+        Returns:
+            int | float: The converted value.
+        
+        Example:
+            >>> from src.halting.mass.mass import MassConversion
+            >>> mass_conversion = MassConversion()
+            >>> mass_conversion.convert_kilograms_to_grams(1)
+            1000
         """
-        return kg * 1000
+        try:
+            if kilograms < 0:
+                raise ValueError("Negative values are not allowed.")
+            
+            grams = kilograms * 1000
+            return grams
     
-    def convert_g_to_mg(self, g: int | float) -> int | float:
+        except TypeError:
+            return f"Error: '{type(kilograms).__name__}' is not allowed, only integer or float values."
+
+    def convert_grams_to_milligrams(self, grams: int | float) -> int | float:
         """
-        multiply the value by 1000
+        Convert grams to milligrams.
+        
+        Args:
+            grams (int | float): The value of grams to be converted to milligrams.
+        
+        Returns:
+            int | float: The converted value.
+        
+        Example:
+            >>> from src.halting.mass.mass import MassConversion
+            >>> mass_conversion = MassConversion()
+            >>> mass_conversion.convert_grams_to_milligrams(1)
+            1000
         """
-        return g * 1000
+        try:
+            if grams < 0:
+                raise ValueError("Negative values are not allowed.")
+
+            milligrams = grams * 1000    
+            return milligrams
+        
+        except TypeError:
+            return f"Error: '{type(grams).__name__}' is not allowed, only integer or float values."
