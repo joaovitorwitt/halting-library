@@ -25,15 +25,11 @@ class MassConversion(object):
             >>> mass_conversion.convert_mg_to_g(1000)
             1
         """
-        try:
-            if milligrams < 0:
-                raise ValueError("Negative values are not allowed.")
-            
-            grams = milligrams / 1000
-            return grams
-        
-        except TypeError:
-            return f"Error: '{type(milligrams).__name__}' is not allowed, only integer or float values."
+        if not isinstance(milligrams, (int | float)):
+            raise ValueError(f"Error: '{type(milligrams).__name__}' is not allowed, only integer or float values.")
+
+        grams = milligrams / 1000
+        return grams
         
     def convert_grams_to_kilograms(self, grams: int | float) -> int | float:
         """
