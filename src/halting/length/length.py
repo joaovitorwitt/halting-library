@@ -158,3 +158,153 @@ class LengthConversion(object):
         millimeters = centimeters * 10
         return millimeters
 
+    def convert_millimeters_to_meters(self, millimeters: int | float) -> int | float:
+        """
+        Converts a value from millimeters to meters by dividing by 1000
+        
+        Args:
+            millimeters (int, float): The value to be converted to meters
+        
+        Returns:
+            int | float: The converted value represented in meters unit.
+        
+        Example:
+            >>> from src.halting.length.length import LengthConversion
+            >>> length_conversion = LengthConversion()
+            >>> length_conversion.convert_millimeters_to_meters(4)
+            0.004
+        """
+        if not isinstance(millimeters, (int, float)):
+            raise TypeError(f"'{type(millimeters).__name__}' is not allowed, only integer or float")
+        
+        if millimeters < 0:
+            raise ValueError("Negative values are not allowed.")
+        
+        meters = millimeters / 1000
+        return meters
+    
+    def convert_millimeters_to_kilometers(self, millimeters: int | float) -> int | float:
+        """
+        Converts a value that's is millimeters to kilometers by dividing the value by 1000000.
+        
+        Args:
+            millimeters (int, float): The value in millimeters to be converted.
+        
+        Returns:
+            int | float: The converted value to kilometers.
+        
+        Example:
+            >>> from src.halting.length.length import LengthConversion
+            >>> length_conversion = LengthConversion()
+            >>> length_conversion.convert_millimeters_to_kilometers(129)
+            0.000129 
+        """
+        if not isinstance(millimeters, (int, float)):
+            raise TypeError(f"'{type(millimeters).__name__}' is not allowed, only integer or float")
+        
+        if millimeters < 0:
+            raise ValueError("Negative values are not allowed.")
+        
+        kilometers = millimeters / 1000000
+        return kilometers
+    
+    def convert_kilometers_to_centimeters(self, kilometers: int | float) -> int | float:
+        """
+        Convert a value from kilometers to centimeters by multiplying the value by 100000
+        
+        Args:
+            kilometers (int, float): The value to be converted to centimeters
+        
+        Returns:
+            int | float: The converted value now represented in centimeters.
+        
+        Example:
+            >>> from src.halting.length.length import LengthConversion
+            >>> length_conversion = LengthConversion()
+            >>> length_conversion.convert_kilometers_to_centimeters(3.4)
+            340000
+        """
+        if not isinstance(kilometers, (int, float)):
+            raise TypeError(f"'{type(kilometers).__name__}' is not allowed, only integer or float")
+        
+        if kilometers < 0:
+            raise ValueError("Negative values are not allowed.")
+        
+        centimeters = kilometers * 100000
+        return centimeters
+    
+    def convert_kilometers_to_millimeters(self, kilometers: int | float) -> int | float:
+        """
+        Convert a value from kilometers to millimeters by dividing the value by 1000000
+        
+        Args:
+            kilometers (int, float): The value in kilometers to be converted.
+        
+        Returns:
+            int | float: The converted value represented in millimeters.
+        
+        Example:
+            >>> from src.halting.length.length import LengthConversion
+            >>> length_conversion = LengthConversion()
+            >>> length_conversion.convert_kilometers_to_millimeters(4)
+            4000000
+        """
+        if not isinstance(kilometers, (int, float)):
+            raise TypeError(f"'{type(kilometers).__name__}' is not allowed, only integer or float")
+        
+        if kilometers < 0:
+            raise ValueError("Negative values are not allowed.")
+        
+        millimeters = kilometers * 1000000
+        return millimeters
+    
+    def convert_meters_to_millimeters(self, meters: int | float) -> int | float:
+        """
+        Converts a value represented from meters to millimeters by multiplying by 1000.
+        
+        Args:
+            meters (int, float): The value in meters to be converted.
+        
+        Returns:
+            int | float: The converted value to millimeters.
+        
+        Example:
+            >>> from src.halting.length.length import LengthConversion
+            >>> length_conversion = LengthConversion()
+            >>> length_conversion.convert_meters_to_millimeters(4)
+            4000
+        """
+        if not isinstance(meters, (int, float)):
+            raise TypeError(f"'{type(meters).__name__}' is not allowed, only integer or float")
+        
+        if meters < 0:
+            raise ValueError("Negative values are not allowed.")
+        
+        millimeters = meters * 1000
+        return millimeters
+    
+    def convert_centimeters_to_kilometers(self, centimeters: int | float) -> int | float:
+        """
+        Convert a value represented in centimeters to kilometers by dividing the value by 100000.
+        
+        Args:
+            centimeters (int, float): The value to be converted to kilometers.
+        
+        Returns:
+            int | float: The converted value now represented in kilometers.
+        
+        Example:
+            >>> from src.halting.length.length import LengthConversion
+            >>> length_conversion = LengthConversion()
+            >>> length_conversion.convert_centimeters_to_kilometers(340)
+            0.00340
+        """
+        if not isinstance(centimeters, (int, float)):
+            raise TypeError(f"'{type(centimeters).__name__}' is not allowed, only integer or float")
+        
+        if centimeters < 0:
+            raise ValueError("Negative values are not allowed.")
+        
+        kilometers = centimeters / 100000
+        return kilometers
+    
