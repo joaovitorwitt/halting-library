@@ -18,9 +18,9 @@ keywords = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/joaovitorwitt/physics-lib"
-Issues = "https://github.com/joaovitorwitt/physics-lib/issues"
-Pulls = "https://github.com/joaovitorwitt/physics-lib/pulls"
+Homepage = "https://github.com/joaovitorwitt/halting-library"
+Issues = "https://github.com/joaovitorwitt/halting-library/issues"
+Pulls = "https://github.com/joaovitorwitt/halting-library/pulls"
 
 [build-system]
 requires = ["setuptools>=61.0"]
