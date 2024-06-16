@@ -144,6 +144,125 @@ class MassConversionTestCase(TestCase):
 
         self.assertEqual(str(context.exception), "Negative values are not allowed.")
 
+    ###############################################################################
+    # Milligrams to Kilograms Test Case
+    ###############################################################################
+    def test_convert_milligrams_to_kilograms(self):
+        self.assertEqual(self.mass_conversion.convert_milligrams_to_kilograms(15), 0.000015)
+        self.assertEqual(self.mass_conversion.convert_milligrams_to_kilograms(47328303), 47.328303)
+        self.assertEqual(self.mass_conversion.convert_milligrams_to_kilograms(982), 0.000982)
+
+    def test_convert_milligrams_to_kilograms_with_invalid_type_raises_error(self):
+        with self.assertRaises(TypeError) as context:
+            self.mass_conversion.convert_milligrams_to_kilograms('string')
+
+        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
+
+    def test_convert_milligrams_to_kilograms_with_negative_value_raises_error(self):
+        with self.assertRaises(ValueError) as context:
+            self.mass_conversion.convert_milligrams_to_kilograms(-1)
+
+        self.assertEqual(str(context.exception), "Negative values are not allowed.")
+
+    ###############################################################################
+    # Milligrams to Tons Test Case
+    ###############################################################################
+    def test_convert_milligrams_to_tons(self):
+        self.assertEqual(self.mass_conversion.convert_milligrams_to_tons(1500000000), 1.5)
+        self.assertEqual(self.mass_conversion.convert_milligrams_to_tons(15), 0.000000015)
+        self.assertEqual(self.mass_conversion.convert_milligrams_to_tons(93739000000000), 93739.0)
+
+    def test_convert_milligrams_to_tons_with_invalid_type_raises_error(self):
+        with self.assertRaises(TypeError) as context:
+            self.mass_conversion.convert_milligrams_to_tons('string')
+
+        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
+    
+    def test_convert_milligrams_to_tons_with_negative_value_raises_error(self):
+        with self.assertRaises(ValueError) as context:
+            self.mass_conversion.convert_milligrams_to_tons(-1)
+
+        self.assertEqual(str(context.exception), "Negative values are not allowed.")
+
+    ###############################################################################
+    # Grams to Tons Test Case
+    ###############################################################################
+    def test_convert_grams_to_tons(self):
+        self.assertEqual(self.mass_conversion.convert_grams_to_tons(1500000), 1.5)
+        self.assertEqual(self.mass_conversion.convert_grams_to_tons(15), 0.000015)
+        self.assertEqual(self.mass_conversion.convert_grams_to_tons(0.72), 0.00000072)
+
+    def test_convert_grams_to_tons_with_invalid_type_raises_error(self):
+        with self.assertRaises(TypeError) as context:
+            self.mass_conversion.convert_grams_to_tons('string')
+
+        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
+
+    def test_convert_grams_to_tons_with_negative_value_raises_error(self):
+        with self.assertRaises(ValueError) as context:
+            self.mass_conversion.convert_grams_to_tons(-1)
+        
+        self.assertEqual(str(context.exception), "Negative values are not allowed.")
+
+    ###############################################################################
+    # Tons to Grams Test Case
+    ###############################################################################
+    def test_convert_tons_to_grams(self):
+        self.assertEqual(self.mass_conversion.convert_tons_to_grams(1.5), 1500000)
+        self.assertEqual(self.mass_conversion.convert_tons_to_grams(0.923), 923000)
+        self.assertEqual(self.mass_conversion.convert_tons_to_grams(0.000028), 28)
+
+    def test_convert_tons_to_grams_with_invalid_type_raises_error(self):
+        with self.assertRaises(TypeError) as context:
+            self.mass_conversion.convert_tons_to_grams('string')
+
+        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
+
+    def test_convert_tons_to_grams_with_negative_values_raises_error(self):
+        with self.assertRaises(ValueError) as context:
+            self.mass_conversion.convert_tons_to_grams(-1)
+
+        self.assertEqual(str(context.exception), "Negative values are not allowed.")
+    
+    ###############################################################################
+    # Tons to Milligrams Test Case
+    ###############################################################################
+    def test_convert_tons_to_milligrams(self):
+        self.assertEqual(self.mass_conversion.convert_tons_to_milligrams(1.5), 1500000000)
+        self.assertEqual(self.mass_conversion.convert_tons_to_milligrams(4234), 4234000000000)
+        self.assertEqual(self.mass_conversion.convert_tons_to_milligrams(0.000000009), 9)
+
+    def test_convert_tons_to_milligrams_with_invalid_type_raises_error(self):
+        with self.assertRaises(TypeError) as context:
+            self.mass_conversion.convert_tons_to_milligrams('string')
+
+        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
+
+    def test_convert_tons_to_milligrams_with_negative_value_raises_error(self):
+        with self.assertRaises(ValueError) as context:
+            self.mass_conversion.convert_tons_to_milligrams(-1)
+        
+        self.assertEqual(str(context.exception), "Negative values are not allowed.")
+
+    ###############################################################################
+    # Kilograms to Milligrams Test Case
+    ###############################################################################
+    def test_convert_kilograms_to_milligrams(self):
+        self.assertEqual(self.mass_conversion.convert_kilograms_to_milligrams(5.6), 5600000)
+        self.assertEqual(self.mass_conversion.convert_kilograms_to_milligrams(0.272029), 272029)
+        self.assertEqual(self.mass_conversion.convert_kilograms_to_milligrams(709287), 709287000000)
+
+    def test_convert_kilograms_to_milligrams_with_invalid_type_raises_error(self):
+        with self.assertRaises(TypeError) as context:
+            self.mass_conversion.convert_kilograms_to_milligrams('string')
+        
+        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
+
+    def test_convert_kilograms_to_milligrams_with_negative_value_raises_error(self):
+        with self.assertRaises(ValueError) as context:
+            self.mass_conversion.convert_kilograms_to_milligrams(-1)
+
+        self.assertEqual(str(context.exception), "Negative values are not allowed.")
 
 if __name__ == "__main__":
     unittest.main()
