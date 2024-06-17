@@ -92,10 +92,10 @@ class TimeConversionTestCase(TestCase):
     def test_convert_milliseconds_to_minutes(self):
         pass
 
-    def test_convert_seconds_to_milliseconds_with_invalid_type_raises_error(self):
+    def test_convert_milliseconds_to_minutes_with_invalid_type_raises_error(self):
         pass
 
-    def test_convert_seconds_to_milliseconds_with_negative_value_raises_error(self):
+    def test_convert_milliseconds_to_minutes_with_negative_value_raises_error(self):
         pass
 
     ###############################################################################
