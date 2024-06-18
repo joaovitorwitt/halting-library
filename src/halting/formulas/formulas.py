@@ -34,3 +34,28 @@ class GeneralFormulas(object):
 
         """
         return (4*pi*(pow(radius, 3))) / 3
+    
+    def calculate_volume_of_a_square(self, edge_length: int | float) -> int | float:
+        """
+        __description__
+        
+        Args:
+            __input__ (__type__):
+        
+        Returns:
+            __type__
+        
+        Example:
+            >>> 
+        """
+
+    def calculate_volume_of_a_cone(self, base_radius: int | float, height: int | float) -> int | float:
+        pass
+
+    def calculate_volume_of_a_rectangle(self, length: int | float, height: int | float, width: int | float) -> int | float:
+        pass
+
+
+
+# AREA CALCULATOR - https://www.calculator.net/area-calculator.html
+# VOLUEM CALCULATOR - https://www.calculator.net/volume-calculator.html
