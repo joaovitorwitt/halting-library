@@ -1,13 +1,36 @@
 #!/bin/bash
 PARAMS="${*:2}"
 
-EXIT_CODE=0
 
+# define the TESTS value if none is passed
+if [[ -z ${PARAMS} ]]; then
+    TESTS=""
+else
+    TESTS="${PARAMS}"
+fi
+
+
+
+EXIT_CODE=0
 case $1 in
     shell)
 
         # python shell implementation
         ipython
+    ;;
+
+    coverage)
+
+        # coverage measurament
+        # report
+
+    ;;
+
+    tests)
+
+        # test
+        python -m unittest ${TESTS}
+        EXIT_CODE=$?
     ;;
 
     *)
@@ -18,6 +41,5 @@ case $1 in
     ;;
 
 esac
-
 exit $EXIT_CODE
         
