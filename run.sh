@@ -4,7 +4,7 @@ PARAMS="${*:2}"
 
 # define the TESTS value if none is passed
 if [[ -z ${PARAMS} ]]; then
-    TESTS=""
+    TESTS="src.halting.tests"
 else
     TESTS="${PARAMS}"
 fi
@@ -21,6 +21,11 @@ case $1 in
 
     coverage)
 
+        export PYTHONWARNINGS="ignore"
+
+        python -m coverage run -m unittest -f ${TESTS}
+        python -m coverage report
+        EXIT_CODE=$?
         # coverage measurament
         # report
 

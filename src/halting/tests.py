@@ -1,11 +1,13 @@
 ##################################################
 # Imports
 ##################################################
-from halting.figures.tests import *
-from halting.length.tests import *
-from halting.mass.tests import *
-from halting.time.tests import *
-from halting.formulas.tests import *
+from src.halting.length.tests import *
+from src.halting.mass.tests import *
+from src.halting.time.tests import *
+
+"""
+missing imports from other modules as well
+"""
 
 ##################################################
 # Explanation
