@@ -2,52 +2,64 @@
 # Imports
 ##################################################
 from math import pi
+from src.halting.base import BaseHalting
 
 ##################################################
 # Formulas Class Implementation
 ##################################################
-class GeneralFormulas(object):
+class GeneralFormulas(BaseHalting):
 
-    def calculate_volume_of_a_cylinder(self, height: int | float, radius: int | float) -> int | float:
+    def calculate_volume_of_a_cylinder(self, height: int | float, base_radius: int | float) -> int | float:
         """
-        This function is used to calcute the volume of a cylinder
+        Calculates the volume of a cylinder.
 
         Args:
-            height: the specified height of the cylinder
-            raidus: the radius of the cylinder 
+            height (int | float): The actual height of the cylinder
+            base_radius (int | float): The base radius of the cyclinder
 
         Returns:
-            the result of applying the calculations
+            int | float: The final volume of the cylinder.
+
+        Example:
+            >>> from src.halting.formulas.formulas import GeneralFormulas
+            >>> GeneralFormulas().calculate_volume_of_a_cylinder(2, 2)
+            25.12 (with pi as 3.14)
         """
-        return height*pi*(pow(radius, 2))
-    
+        return height*pi*(pow(base_radius, 2))
     
     def calculate_volume_of_a_sphere(self, radius: int | float) -> int | float:
         """
-        This function is used to calculate the volume of a sphere
+        Calculate the volume of a sphere.
 
         Args:
-            radius: the radius of the sphere
+            radius(int, float): The radius of the sphere
 
         Returns:
-            the result of applying the formula
+            int | float: The calculated volume of a sphere.
 
+        Example:
+            >>> from src.halting.formulas.formulas import GeneralFormulas
+            >>> GeneralFormulas().calculate_volume_of_a_cylinder(3)
+            113.04
         """
         return (4*pi*(pow(radius, 3))) / 3
     
-    def calculate_volume_of_a_square(self, edge_length: int | float) -> int | float:
+    def calculate_volume_of_a_cube(self, edge_length: int | float) -> int | float:
         """
-        __description__
+        Calculate the valume of a cube.
         
         Args:
-            __input__ (__type__):
+            edge_length (int, float): The edge length of the cube.
         
         Returns:
-            __type__
+            int | float: The final calculated volume of the cube.
         
         Example:
-            >>> 
+            >>> from src.halting.formulas.formulas import GeneralFormulas
+            >>> GeneralFormulas().calculate_volume_of_a_cube(3)
+            27
         """
+        return pow(edge_length, 3)
 
     def calculate_volume_of_a_cone(self, base_radius: int | float, height: int | float) -> int | float:
         pass
