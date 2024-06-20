@@ -62,12 +62,30 @@ class GeneralFormulas(BaseHalting):
         return pow(edge_length, 3)
 
     def calculate_volume_of_a_cone(self, base_radius: int | float, height: int | float) -> int | float:
-        pass
+        """
+        _summary_
+
+        Args:
+            base_radius (int | float): _description_
+            height (int | float): _description_
+
+        Returns:
+            int | float: _description_
+
+        Example:
+            >>>
+        """
 
     def calculate_volume_of_a_rectangle(self, length: int | float, height: int | float, width: int | float) -> int | float:
         pass
 
+    def calculate_spherical_cap_volume(self, base_radius: int | float, height: int | float, ball_radius: int | float) -> int | float:
+        pass
 
+    def calculate_volume_of_a_capsule(self, base_radius: int | float, height: int | float):
+        pass
+
+    
 
 # AREA CALCULATOR - https://www.calculator.net/area-calculator.html
 # VOLUEM CALCULATOR - https://www.calculator.net/volume-calculator.html
