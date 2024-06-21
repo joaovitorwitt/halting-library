@@ -9,7 +9,10 @@ from src.halting.base import BaseHalting
 ##################################################
 class GeneralFormulas(BaseHalting):
 
-    def calculate_volume_of_a_cylinder(self, height: int | float, base_radius: int | float) -> int | float:
+    ##################################################
+    # Formulas To Calculate The Volume
+    ##################################################
+    def calculate_cylinder_volume(self, height: int | float, base_radius: int | float) -> int | float:
         """
         Calculates the volume of a cylinder.
 
@@ -27,7 +30,7 @@ class GeneralFormulas(BaseHalting):
         """
         return height*pi*(pow(base_radius, 2))
     
-    def calculate_volume_of_a_sphere(self, radius: int | float) -> int | float:
+    def calculate_sphere_volume(self, radius: int | float) -> int | float:
         """
         Calculate the volume of a sphere.
 
@@ -44,9 +47,9 @@ class GeneralFormulas(BaseHalting):
         """
         return (4*pi*(pow(radius, 3))) / 3
     
-    def calculate_volume_of_a_cube(self, edge_length: int | float) -> int | float:
+    def calculate_cube_volume(self, edge_length: int | float) -> int | float:
         """
-        Calculate the valume of a cube.
+        Calculate the volume of a cube.
         
         Args:
             edge_length (int, float): The edge length of the cube.
@@ -61,7 +64,7 @@ class GeneralFormulas(BaseHalting):
         """
         return pow(edge_length, 3)
 
-    def calculate_volume_of_a_cone(self, base_radius: int | float, height: int | float) -> int | float:
+    def calculate_cone_volume(self, base_radius: int | float, height: int | float) -> int | float:
         """
         Calculate the volume of a cone
 
@@ -81,7 +84,7 @@ class GeneralFormulas(BaseHalting):
         cone_formula = (pi * pow(base_radius, 2) * height) / 3
         return cone_formula
 
-    def calculate_volume_of_a_rectangle(self, length: int | float, height: int | float, width: int | float) -> int | float:
+    def calculate_rectangle_volume(self, length: int | float, height: int | float, width: int | float) -> int | float:
         """
         Calculate the volume of a rectangle
 
@@ -123,7 +126,7 @@ class GeneralFormulas(BaseHalting):
         spherical_cap = (pi / 3) * pow(height, 2) * (3*ball_radius - height)
         return spherical_cap
 
-    def calculate_volume_of_a_capsule(self, base_radius: int | float, height: int | float):
+    def calculate_capsule_volume(self, base_radius: int | float, height: int | float):
         """
         Calculates the volume of a capsule.
 
@@ -138,8 +141,11 @@ class GeneralFormulas(BaseHalting):
             58.64
         """
 
-    def calculate_conical_frustum_volume(self, top_radius: int | float, bottom_radius: int | float, height: int | float) -> int | float:
-        pass
+    def calculate_ellipsoid_volume(self, axis_a: int | float, axis_b: int | float, axis_c: int | float):
+        ellipsoid = (4 * pi * axis_a * axis_b * axis_c) / 3
+        return ellipsoid
+
+
 
 
     
