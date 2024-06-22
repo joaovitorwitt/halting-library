@@ -167,15 +167,18 @@ class VolumeFormulas(BaseHalting):
         Calculate the volume of an ellipsoid
 
         Args:
-            axis_a (int | float): _description_
-            axis_b (int | float): _description_
-            axis_c (int | float): _description_
+            axis_a (int | float): The A axis of the ellipsoid.
+            axis_b (int | float): The B axis of the ellipsoid.
+            axis_c (int | float): The C axis of the ellipsoid.
 
         Returns:
-            int | float: _description_
+            int | float: The calculated volume of the ellipsoid.
 
         Example:
             >>> from src.halting.formulas.volume import VolumeFormulas
+            >>> volume = VolumeFormulas()
+            >>> volume.calculate_ellipsoid_volume(2, 2, 2)
+            33.5103            
         """
         self.validate(axis_a, axis_b, axis_c)
 
