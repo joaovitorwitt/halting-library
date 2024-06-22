@@ -4,7 +4,7 @@
 from src.halting.length.tests import *
 from src.halting.mass.tests import *
 from src.halting.time.tests import *
-from src.halting.formulas.tests import *
+from src.halting.formulas._tests import *
 
 """
 missing imports from other modules as well

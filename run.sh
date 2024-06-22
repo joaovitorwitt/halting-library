@@ -22,6 +22,8 @@ case $1 in
     coverage)
 
         export PYTHONWARNINGS="ignore"
+        
+        echo "Running coverage..."
 
         python -m coverage run -m unittest -f ${TESTS}
         python -m coverage report
@@ -34,8 +36,18 @@ case $1 in
     tests)
 
         # test
+        
+        echo "Running tests..."
+        
         python -m unittest ${TESTS}
         EXIT_CODE=$?
+    ;;
+
+    build)
+
+    # build command to deploy a new version of the library
+    echo "Preparing deployment..."
+
     ;;
 
     *)

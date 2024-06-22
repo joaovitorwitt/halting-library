@@ -1,12 +1,12 @@
 ###############################################################################
 # Imports
 ###############################################################################
-
+from src.halting.base import BaseHalting
 
 ###############################################################################
 # Mass Conversion Class Implementation
 ###############################################################################
-class MassConversion(object):
+class MassConversion(BaseHalting):
 
     def convert_milligrams_to_grams(self, milligrams: int | float) -> int | float:
         """
@@ -25,11 +25,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_mg_to_g(1000)
             1
         """
-        if not isinstance(milligrams, (int | float)):
-            raise TypeError(f"'{type(milligrams).__name__}' is not allowed, only integer or float")
-
-        if milligrams < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(milligrams)
 
         grams = milligrams / 1000
         return grams
@@ -53,11 +49,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_grams_to_kilograms(10000)
             10
         """
-        if not isinstance(grams, (int, float)):
-            raise TypeError(f"'{type(grams).__name__}' is not allowed, only integer or float")
-
-        if grams < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(grams)
 
         kilogramas = grams / 1000
         return kilogramas
@@ -78,11 +70,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_kilograms_to_tons(10000)
             10
         """
-        if not isinstance(kilograms, (int, float)):
-            raise TypeError(f"'{type(kilograms).__name__}' is not allowed, only integer or float")
-        
-        if kilograms < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(kilograms)
         
         tons = kilograms / 1000
         return tons
@@ -103,11 +91,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_tons_to_kilograms(1)
             1000
         """
-        if not isinstance(tons, (int, float)):
-            raise TypeError(f"'{type(tons).__name__}' is not allowed, only integer or float")
-        
-        if tons < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(tons)
 
         kilograms = tons * 1000
         return kilograms
@@ -128,11 +112,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_kilograms_to_grams(1)
             1000
         """
-        if not isinstance(kilograms, (int, float)):
-            raise TypeError(f"'{type(kilograms).__name__}' is not allowed, only integer or float")
-        
-        if kilograms < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(kilograms)
      
         grams = kilograms * 1000
         return grams
@@ -153,11 +133,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_grams_to_milligrams(1)
             1000
         """
-        if not isinstance(grams, (int, float)):
-            raise TypeError(f"'{type(grams).__name__}' is not allowed, only integer or float")
-        
-        if grams < 0:
-            raise ValueError("Negative values are not allowed.")            
+        self.validate(grams)
 
         milligrams = grams * 1000    
         return milligrams
@@ -178,11 +154,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_milligrams_to_kilograms(1500)
             0.0015
         """
-        if not isinstance(milligrams, (int, float)):
-            raise TypeError(f"'{type(milligrams).__name__}' is not allowed, only integer or float")
-        
-        if milligrams < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(milligrams)
         
         kilograms = milligrams / 1000000
         return kilograms
@@ -203,11 +175,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_milligrams_to_tons(1500000000)
             1.5
         """
-        if not isinstance(milligrams, (int, float)):
-            raise TypeError(f"'{type(milligrams).__name__}' is not allowed, only integer or float")
-        
-        if milligrams < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(milligrams)
         
         tons = milligrams / 1000000000
         return tons
@@ -228,11 +196,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_grams_to_tons(1500000)
             1.5
         """
-        if not isinstance(grams, (int, float)):
-            raise TypeError(f"'{type(grams).__name__}' is not allowed, only integer or float")
-        
-        if grams < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(grams)
         
         tons = grams / 1000000
         return tons
@@ -253,11 +217,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_tons_to_grams(1.5)
             1500000
         """
-        if not isinstance(tons, (int, float)):
-            raise TypeError(f"'{type(tons).__name__}' is not allowed, only integer or float")
-        
-        if tons < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(tons)
         
         grams = tons * 1000000
         return grams
@@ -278,15 +238,10 @@ class MassConversion(object):
             >>> mass_conversion.convert_tons_to_milligrams(1.5)
             1500000000
         """
-        if not isinstance(tons, (int, float)):
-            raise TypeError(f"'{type(tons).__name__}' is not allowed, only integer or float")
-        
-        if tons < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(tons)
 
         milligrams = tons * 1000000000
         return milligrams
-    
 
     def convert_kilograms_to_milligrams(self, kilograms: int | float) -> int | float:
         """
@@ -304,11 +259,7 @@ class MassConversion(object):
             >>> mass_conversion.convert_kilograms_to_milligrams(1.5)
             1500000
         """
-        if not isinstance(kilograms, (int, float)):
-            raise TypeError(f"'{type(kilograms).__name__}' is not allowed, only integer or float")
-        
-        if kilograms < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(kilograms)
         
         milligrams = kilograms * 1000000
         return milligrams

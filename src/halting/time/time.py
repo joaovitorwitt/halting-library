@@ -1,11 +1,12 @@
 ###############################################################################
 # Imports
 ###############################################################################
+from src.halting.base import BaseHalting
 
 ###############################################################################
 # Time Conversion Class Implementation
 ###############################################################################
-class TimeConversion(object):
+class TimeConversion(BaseHalting):
 
     def convert_milliseconds_to_seconds(self, milliseconds: int | float) -> int | float:
         """
@@ -23,11 +24,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_milliseconds_to_seconds(2928)
             2.928
         """
-        if not isinstance(milliseconds, (int, float)):
-            raise TypeError(f"'{type(milliseconds).__name__}' is not allowed, only integer or float")
-        
-        if milliseconds < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(milliseconds)
         
         seconds = milliseconds / 1000
         return seconds
@@ -48,11 +45,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_seconds_to_minutes(360)
             6
         """
-        if not isinstance(seconds, (int, float)):
-            raise TypeError(f"'{type(seconds).__name__}' is not allowed, only integer or float")
-        
-        if seconds < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(seconds)
         
         minutes = seconds / 60
         return minutes
@@ -73,11 +66,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_minutes_to_hours(30)
             0.5
         """
-        if not isinstance(minutes, (int, float)):
-            raise TypeError(f"'{type(minutes).__name__}' is not allowed, only integer or float")
-        
-        if minutes < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(minutes)
         
         hours = minutes / 60
         return hours
@@ -98,11 +87,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_hours_to_minutes(2)
             120
         """
-        if not isinstance(hours, (int, float)):
-            raise TypeError(f"'{type(hours).__name__}' is not allowed, only integer or float")
-        
-        if hours < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(hours)
         
         minutes = hours * 60
         return minutes
@@ -123,11 +108,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_minutes_to_seconds(2)
             120
         """
-        if not isinstance(minutes, (int, float)):
-            raise TypeError(f"'{type(minutes).__name__}' is not allowed, only integer or float")
-        
-        if minutes < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(minutes)
         
         seconds = minutes * 60
         return seconds
@@ -148,11 +129,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_seconds_to_milliseconds(3)
             3000
         """
-        if not isinstance(seconds, (int, float)):
-            raise TypeError(f"'{type(seconds).__name__}' is not allowed, only integer or float")
-        
-        if seconds < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(seconds)
         
         milliseconds = seconds * 1000
         return milliseconds
@@ -173,11 +150,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_milliseconds_to_minutes(60000)
             1
         """
-        if not isinstance(milliseconds, (int, float)):
-            raise TypeError(f"'{type(milliseconds).__name__}' is not allowed, only integer or float")
-        
-        if milliseconds < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(milliseconds)
         
         minutes = milliseconds / 60000
         return minutes
@@ -198,11 +171,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_milliseconds_to_hours(1800000)
             0.5
         """
-        if not isinstance(milliseconds, (int, float)):
-            raise TypeError(f"'{type(milliseconds).__name__}' is not allowed, only integer or float")
-        
-        if milliseconds < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(milliseconds)
         
         hours = milliseconds / 3600000
         return hours
@@ -223,11 +192,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_hours_to_seconds(4)
             14440
         """
-        if not isinstance(hours, (int, float)):
-            raise TypeError(f"'{type(hours).__name__}' is not allowed, only integer or float")
-        
-        if hours < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(hours)
         
         seconds = hours * 3600
         return seconds
@@ -249,11 +214,7 @@ class TimeConversion(object):
             14400000
 
         """
-        if not isinstance(hours, (int, float)):
-            raise TypeError(f"'{type(hours).__name__}' is not allowed, only integer or float")
-        
-        if hours < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(hours)
         
         milliseconds = hours * 3600000
         return milliseconds
@@ -274,11 +235,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_seconds_to_hours(7200)
             2
         """
-        if not isinstance(seconds, (int, float)):
-            raise TypeError(f"'{type(seconds).__name__}' is not allowed, only integer or float")
-        
-        if seconds < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(seconds)
         
         hours = seconds / 3600
         return hours
@@ -299,11 +256,7 @@ class TimeConversion(object):
             >>> time_conversion.convert_minutes_to_milliseconds(32)
             1920000
         """
-        if not isinstance(minutes, (int, float)):
-            raise TypeError(f"'{type(minutes).__name__}' is not allowed, only integer or float")
-        
-        if minutes < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(minutes)
         
         milliseconds = minutes * 60000
         return milliseconds

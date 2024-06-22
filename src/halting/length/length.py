@@ -1,12 +1,12 @@
 ###############################################################################
 # Imports
 ###############################################################################
-
+from src.halting.base import BaseHalting
 
 ###############################################################################
 # Length Conversion Class Implementation
 ###############################################################################
-class LengthConversion(object):
+class LengthConversion(BaseHalting):
 
     def convert_millimeters_to_centimeters(self, millimeters: int | float) -> int | float:
         """
@@ -24,11 +24,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_millimeters_to_centimeters(100)
             10
         """
-        if not isinstance(millimeters, (int, float)):
-            raise TypeError(f"'{type(millimeters).__name__}' is not allowed, only integer or float")
-        
-        if millimeters < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(millimeters)
         
         centimeters = millimeters / 10
         return centimeters
@@ -49,11 +45,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_centimeters_to_meters(1000)
             10
         """
-        if not isinstance(centimeters, (int, float)):
-            raise TypeError(f"'{type(centimeters).__name__}' is not allowed, only integer or float")
-
-        if centimeters < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(centimeters)
         
         meters = centimeters / 100
         return meters
@@ -74,11 +66,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_meters_to_kilometers(500)
             >>> 0.5
         """
-        if not isinstance(meters, (int, float)):
-            raise TypeError(f"'{type(meters).__name__}' is not allowed, only integer or float")
-        
-        if meters < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(meters)
         
         kilometers = meters / 1000
         return kilometers
@@ -99,11 +87,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_kilometers_to_meters(29)
             29000
         """
-        if not isinstance(kilometers, (int, float)):
-            raise TypeError(f"'{type(kilometers).__name__}' is not allowed, only integer or float")
-        
-        if kilometers < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(kilometers)
         
         meters = kilometers * 1000
         return meters
@@ -124,11 +108,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_meters_to_centimeters(59)
             5900
         """
-        if not isinstance(meters, (int, float)):
-            raise TypeError(f"'{type(meters).__name__}' is not allowed, only integer or float")
-        
-        if meters < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(meters)
         
         centimeters = meters * 100
         return centimeters
@@ -149,11 +129,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_centimeters_to_millimeters(894)
             8940
         """
-        if not isinstance(centimeters, (int, float)):
-            raise TypeError(f"'{type(centimeters).__name__}' is not allowed, only integer or float")
-        
-        if centimeters < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(centimeters)
         
         millimeters = centimeters * 10
         return millimeters
@@ -174,11 +150,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_millimeters_to_meters(4)
             0.004
         """
-        if not isinstance(millimeters, (int, float)):
-            raise TypeError(f"'{type(millimeters).__name__}' is not allowed, only integer or float")
-        
-        if millimeters < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(millimeters)
         
         meters = millimeters / 1000
         return meters
@@ -199,11 +171,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_millimeters_to_kilometers(129)
             0.000129 
         """
-        if not isinstance(millimeters, (int, float)):
-            raise TypeError(f"'{type(millimeters).__name__}' is not allowed, only integer or float")
-        
-        if millimeters < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(millimeters)
         
         kilometers = millimeters / 1000000
         return kilometers
@@ -224,11 +192,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_kilometers_to_centimeters(3.4)
             340000
         """
-        if not isinstance(kilometers, (int, float)):
-            raise TypeError(f"'{type(kilometers).__name__}' is not allowed, only integer or float")
-        
-        if kilometers < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(kilometers)
         
         centimeters = kilometers * 100000
         return centimeters
@@ -249,11 +213,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_kilometers_to_millimeters(4)
             4000000
         """
-        if not isinstance(kilometers, (int, float)):
-            raise TypeError(f"'{type(kilometers).__name__}' is not allowed, only integer or float")
-        
-        if kilometers < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(kilometers)
         
         millimeters = kilometers * 1000000
         return millimeters
@@ -274,11 +234,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_meters_to_millimeters(4)
             4000
         """
-        if not isinstance(meters, (int, float)):
-            raise TypeError(f"'{type(meters).__name__}' is not allowed, only integer or float")
-        
-        if meters < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(meters)
         
         millimeters = meters * 1000
         return millimeters
@@ -299,11 +255,7 @@ class LengthConversion(object):
             >>> length_conversion.convert_centimeters_to_kilometers(340)
             0.00340
         """
-        if not isinstance(centimeters, (int, float)):
-            raise TypeError(f"'{type(centimeters).__name__}' is not allowed, only integer or float")
-        
-        if centimeters < 0:
-            raise ValueError("Negative values are not allowed.")
+        self.validate(centimeters)
         
         kilometers = centimeters / 100000
         return kilometers
