@@ -29,7 +29,7 @@ class AlgebraFormulas(BaseHalting):
             >>> algebra.exponent_calculator(2, 3)
             8
         """
-        self.validate(base, exponent)
+        self.validate_instance(base, exponent)
 
         result = pow(base, exponent)
         return result
@@ -70,7 +70,7 @@ class AlgebraFormulas(BaseHalting):
             >>> algebra = AlgebraFormulas()
             >>> algebra.cubic_root()
         """
-        self.validate(value)
+        self.validate_instance(value)
 
         cubic_root = cbrt(value)
         return cubic_root
