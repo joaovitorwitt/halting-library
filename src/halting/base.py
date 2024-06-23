@@ -33,6 +33,13 @@ class BaseHalting(object):
                 raise ValueError("Negative values are not allowed.")
 
         return
-    
+
+    def validate_instance(self, *args) -> Any:
+        for arg in args:
+            if not isinstance(arg, (int, float)):
+                raise TypeError(f"'{type(arg).__name__}' is not allowed.")
+
+        return
+
     
         
