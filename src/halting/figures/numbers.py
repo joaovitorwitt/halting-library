@@ -47,7 +47,8 @@ class ManageFigures(BaseHalting):
                     return len(figures) - trailing_number_of_zeros
                 
         except ValueError:
-            return 'sss'
+            to_list = list(figures)
+            return to_list
 
     def scientific_notation_to_integer(self, scientific_notation: int | float) -> int | float:
         """
