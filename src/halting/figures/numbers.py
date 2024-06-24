@@ -46,9 +46,20 @@ class ManageFigures(BaseHalting):
                             break
                     return len(figures) - trailing_number_of_zeros
                 
+                # if we have a Value Error means that there was a '.' in the integer conversion    
         except ValueError:
             to_list = list(figures)
-            return to_list
+            
+            for number in to_list:
+                if number == '0':
+                    leading_number_of_zeros += 1
+                
+                elif number == '.':
+                    continue
+
+                else:
+                    break
+            return len(to_list) - (leading_number_of_zeros + 1)
 
     def scientific_notation_to_integer(self, scientific_notation: int | float) -> int | float:
         """
