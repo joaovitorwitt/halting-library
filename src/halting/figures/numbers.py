@@ -46,7 +46,8 @@ class ManageFigures(BaseHalting):
                             break
                     return len(figures) - trailing_number_of_zeros
                 
-                # if we have a Value Error means that there was a '.' in the integer conversion    
+        # if we have a Value Error means that there was a '.' in the integer conversion
+        # # dont know if this was the best approach 
         except ValueError:
             to_list = list(figures)
             
