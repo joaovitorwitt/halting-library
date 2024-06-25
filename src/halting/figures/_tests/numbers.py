@@ -27,7 +27,5 @@ class ManageFiguresTestCase(TestCase):
         self.assertEqual(self.figures.calculate_number_of_significant_figures('3223.100'), 7)
         self.assertEqual(self.figures.calculate_number_of_significant_figures('0.02920'), 4)
 
-
-
 if __name__ == "__main__":
     unittest.main()
