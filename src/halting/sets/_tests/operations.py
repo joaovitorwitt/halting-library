@@ -9,7 +9,13 @@ from src.halting.sets.operations import SetOperations
 # Set Operations Test Case Implementation
 ##################################################
 class SetOperationsTestCase(TestCase):
-    pass
+    def setUp(self) -> None:
+        self.set_operations = SetOperations()
+        return super().setUp()
+
+
+    def test_is_set_empty(self):
+        pass
 
 
 if __name__ == "__main__":
