@@ -37,7 +37,19 @@ class SetOperations(BaseHalting):
         Returns:
             bool: True if the set contains only one element, False otherwise.
         """
-        return len(set_value) == 1    
+        return len(set_value) == 1 
     
+    def is_set_universal(self, set_value: list) -> bool:
+        """
+        Universal set is a set that checks
+
+        Args:
+            set_value (list): _description_
+
+        Returns:
+            bool: _description_
+        """
+        return set_value
+
 
 
