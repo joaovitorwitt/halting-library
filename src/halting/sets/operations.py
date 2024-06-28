@@ -22,6 +22,7 @@ class SetOperations(BaseHalting):
         Returns:
             bool: True if the set does not contain any elements, False otherwise.
         """
+        self.validate_instance((list, set, dict), set_value)
         return len(set_value) == 0
 
     def is_set_unitary(self, set_value: list) -> bool:
@@ -37,19 +38,12 @@ class SetOperations(BaseHalting):
         Returns:
             bool: True if the set contains only one element, False otherwise.
         """
+        self.validate_instance((list, set, dict), set_value)
+
         return len(set_value) == 1 
     
-    def is_set_universal(self, set_value: list) -> bool:
-        """
-        Universal set is a set that checks
+    def set_union(self):
+        pass
 
-        Args:
-            set_value (list): _description_
-
-        Returns:
-            bool: _description_
-        """
-        return set_value
-
-
+    # def set_inter
 

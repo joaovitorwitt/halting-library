@@ -6,7 +6,7 @@ from typing import Any
 ##################################################
 # Base Halting Implementation
 ##################################################
-class BaseHalting(object):
+class BaseHalting:
     """
     This is the base class for the halting library
 
@@ -32,14 +32,17 @@ class BaseHalting(object):
             if arg < 0:
                 raise ValueError("Negative values are not allowed.")
 
-        return
-
-    def validate_instance(self, *args) -> Any:
+    def validate_instance(self, instance_type: tuple, *args) -> Any:
         for arg in args:
-            if not isinstance(arg, (int, float)):
+            if not isinstance(arg, (instance_type)):
                 raise TypeError(f"'{type(arg).__name__}' is not allowed.")
+            
 
-        return
+    def __eq__(self, value: object) -> bool:
+        return self.__dict__ == value.__dict__
+    
+    
+
 
     
         
