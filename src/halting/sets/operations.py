@@ -58,6 +58,12 @@ class SetOperations(BaseHalting):
             >>> set_union({1,2,3}, {3,4,5})
             {1,2,3,4,5}
         """
+        if set1 == {}:
+            set1 = set(set1)
+
+        if set2 == {}:
+            set2 = set(set2)
+            
         self.validate_instance(set, set1, set2)
         resulting_set = set1.copy()
         for element in set2:
@@ -65,10 +71,124 @@ class SetOperations(BaseHalting):
                 resulting_set.add(element)
 
         return resulting_set
-        
-    def set_difference(self):
-        pass
 
-    def set_intersection(self):
-        pass
+    def set_intersection(self, set1: set, set2: set) -> set:
+        """
+        Given two sets, A and B, the intersection of two sets
+        are the elements that belong to both sets A and B.
 
+        This function takes two sets as input and calculates
+        the intersection A ∩ B.
+
+        Args:
+            set1 (set): The first set.
+            set2 (set): The second set.
+
+        Returns:
+            set: A brand new set with the elements that are present in both sets.
+
+        Example:
+            >>> set_intersection({1,2,3,4}, {3,4,5,6})
+            {3,4}
+        """
+        if set1 == {}:
+            set1 = set(set1)
+
+        if set2 == {}:
+            set2 = set(set2)
+
+        resulting_set = set()
+        merge_sets = []
+
+        for element in set1:
+            merge_sets.append(element)
+
+        for element in set2:
+            merge_sets.append(element)
+
+        self.validate_instance(set, set1, set2)
+        merge_sets.sort()
+
+        for index, element in enumerate(merge_sets):
+            if merge_sets[index] == merge_sets[index - 1]:
+                resulting_set.add(merge_sets[index])
+
+        if len(resulting_set) == 0:
+            resulting_set = {}
+        return resulting_set
+
+    def set_difference(self, set1: set, set2: set) -> set:
+        """
+        Given the sets A and B, the difference of the sets
+        are the elements that belong to set A but do not belong
+        to set B.
+
+        This function takes two sets and calculates the difference
+        between them, A - B.
+
+        Args:
+            set1 (set): The set to perform the difference.
+            set2 (set): The second set of elements.
+
+        Returns:
+            set: The set of elements that are on the first set but no in the second set.
+
+        Example:
+            >>> set_difference({21,22,23,24,25,26,27}, {2,7,11,13,23,27})
+            {21,22,24,25,26}
+        """
+        if set1 == {}:
+            set1 = set(set1)
+
+        if set2 == {}:
+            set2 = set(set2)
+
+        self.validate_instance(set, set1, set2)
+        for element in set2:
+            if element in set1:
+                set1.remove(element)
+
+        if len(set1) == 0:
+            set1 = {}
+        return set1
+
+    def element_belongs_to_set(self, element: int | str | float, set1: set) -> bool:
+        """
+        This function returns a boolean indicating whether an element
+        belongs to a set or not by perfomring the following operation:
+        x ∈ A
+
+        Args:
+            element (int | str | float): The element to check if is in the set.
+            set1 (set): The set to be used.
+
+        Returns:
+            bool: True if the element is in the set, False otherwise.
+
+        Example:
+            >>> element_belongs_to_set(3, {1,2,3})
+            True
+        """
+        self.validate_instance(set, set1)
+        self.validate(element)
+        return element in set1
+
+    def set_is_subset(self, set1: set, set2: set) -> bool:
+        """
+        A set is considered a subset of another set if 
+        all the elements from a set A belong to a set B.
+
+        In other words, A is a subset of B if, only if, all
+        elements from A also belong to B.
+
+        Args:
+            set1 (_type_): _description_
+            set2 (_type_): _description_
+
+        Returns:
+            bool: 
+
+        Example:
+            >>> set_is_subset({})
+        """
+        pass
