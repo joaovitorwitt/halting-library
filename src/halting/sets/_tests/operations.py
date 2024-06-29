@@ -47,6 +47,21 @@ class SetOperationsTestCase(TestCase):
 
         self.assertEqual(str(context.exception), "'str' is not allowed.")
 
+    ##################################################
+    # Set Union Test Case
+    ##################################################
+    def test_set_union(self):
+        self.assertSetEqual(self.set_operations.set_union({2}, {45}), {2, 45})
+        self.assertSetEqual(self.set_operations.set_union({'a'}, {'b', 'z'}), {'a', 'b', 'z'})
+        self.assertSetEqual(self.set_operations.set_union({9, 73, 3, 2}, {1}), {1,2,3,9,73})
+        self.assertSetEqual(self.set_operations.set_union({5, 10, 15, 20, 25}, {10, 20, 30, 40, 50}), {5, 10, 15, 20, 25, 30, 40, 50})
+        self.assertSetEqual(self.set_operations.set_union({}, {1,2,3}), {1,2,3})
+
+    def test_set_union_with_invalid_instance(self):
+        with self.assertRaises(TypeError) as context:
+            self.set_operations.set_union([1,2,3], [1,2,3])
+
+        self.assertEqual(str(context.exception), "'list' is not allowed.")
 
 if __name__ == "__main__":
     unittest.main()

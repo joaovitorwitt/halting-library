@@ -42,8 +42,33 @@ class SetOperations(BaseHalting):
 
         return len(set_value) == 1 
     
-    def set_union(self):
+    def set_union(self, set1: set, set2: set) -> set:
+        """
+        Performs an union operation on two sets A U B
+        then returns the resulting set.
+
+        Args:
+            set1 (set): The first set
+            set2 (set): The second set
+
+        Returns:
+            set: The resulting of uniting both sets.
+
+        Example:
+            >>> set_union({1,2,3}, {3,4,5})
+            {1,2,3,4,5}
+        """
+        self.validate_instance(set, set1, set2)
+        resulting_set = set1.copy()
+        for element in set2:
+            if element not in resulting_set:
+                resulting_set.add(element)
+
+        return resulting_set
+        
+    def set_difference(self):
         pass
 
-    # def set_inter
+    def set_intersection(self):
+        pass
 
