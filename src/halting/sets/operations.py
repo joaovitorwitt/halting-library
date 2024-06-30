@@ -173,22 +173,35 @@ class SetOperations(BaseHalting):
         self.validate(element)
         return element in set1
 
-    def set_is_subset(self, set1: set, set2: set) -> bool:
+    def set_is_subset(self, subset: set, set2: set) -> bool:
         """
         A set is considered a subset of another set if 
         all the elements from a set A belong to a set B.
 
         In other words, A is a subset of B if, only if, all
-        elements from A also belong to B.
+        elements from A also belong to B. A ⊆ B.
 
         Args:
-            set1 (_type_): _description_
-            set2 (_type_): _description_
+            subset (set): The `subset` will be used as the subset.
+            set2 (set): The `set2` will be the outer set.
 
         Returns:
-            bool: 
+            bool: True if ``subset`` is a subset of `set2`, False otherwise.
 
         Example:
-            >>> set_is_subset({})
+            >>> set_is_subset({1,2,3}, {0,1,2,3,4})
+            True
         """
-        pass
+        true_counter = 0
+        length_set = len(subset)
+
+
+        for element in subset:
+            if element in set2:
+                true_counter += 1
+
+        return true_counter == length_set
+
+
+
+        
