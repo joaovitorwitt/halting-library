@@ -79,3 +79,17 @@ class ManageFigures(BaseHalting):
             >>> figures.scientific_notation_to_integer(5.6)
         """
         return scientific_notation
+
+
+    def convert_periodic_decimal_to_fraction(self, periodic_decimal: int | float) -> int | float:
+        """
+        Periodic decimal is every decimal that can only be represented using an infite number
+        of decimal points, and there is also a repetition in the figures.
+
+        Args:
+            periodic_decimal (int | float): _description_
+
+        Returns:
+            int | float: _description_
+        """
+        pass
