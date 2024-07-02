@@ -16,14 +16,33 @@ class SetsTestCase(TestCase):
     ##################################################
     # Whole Numbers Test Case Implementation
     ##################################################
-    def test_is_number_whole(self):
-        pass
+    def test_is_number_natural(self):
+        self.assertTrue(self.sets.is_number_natural(2))
+        self.assertTrue(self.sets.is_number_natural(112))
+        self.assertTrue(self.sets.is_number_natural(2432))
+        self.assertTrue(self.sets.is_number_natural(0))
+
+        self.assertFalse(self.sets.is_number_natural(-2))
+        self.assertFalse(self.sets.is_number_natural(2.3))
+        self.assertFalse(self.sets.is_number_natural(0.1))
+        self.assertFalse(self.sets.is_number_natural(-0.1))
+
+    def test_is_number_natural_with_invalid_type(self):
+        with self.assertRaises(TypeError) as context:
+            self.sets.is_number_natural('123')
+
+        self.assertEqual(str(context.exception), "'str' is not allowed.")
 
     ##################################################
     # Integer Numbers Test Case Implementation
     ##################################################
     def test_is_number_integer(self):
-        pass
+        self.assertTrue(self.sets.is_number_integer(2))
+        self.assertTrue(self.sets.is_number_integer(-2))
+        self.assertTrue(self.sets.is_number_integer(0))
+        self.assertTrue(self.sets.is_number_integer(-323))
+
+        self.assertFalse(self.sets.is_number_integer())
 
     ##################################################
     # Rational Numbers Test Case Implementation
