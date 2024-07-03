@@ -42,7 +42,10 @@ class SetsTestCase(TestCase):
         self.assertTrue(self.sets.is_number_integer(0))
         self.assertTrue(self.sets.is_number_integer(-323))
 
-        self.assertFalse(self.sets.is_number_integer())
+        self.assertFalse(self.sets.is_number_integer(3.2))
+        self.assertFalse(self.sets.is_number_integer(3.14))
+        self.assertFalse(self.sets.is_number_integer(-0.2))
+        self.assertFalse(self.sets.is_number_integer(4/3))
 
     ##################################################
     # Rational Numbers Test Case Implementation
