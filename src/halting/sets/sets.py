@@ -28,9 +28,27 @@ class Sets(BaseHalting):
         return int(number) >= 0 and not isinstance(number, float)
 
     def is_number_integer(self, number: int | float) -> bool:
+        """
+        _summary_
+
+        Args:
+            number (int | float): _description_
+
+        Returns:
+            bool: _description_
+        """
         return not isinstance(number, float)
 
     def is_number_rational(self, number: int | float) -> bool:
+        """
+        _summary_
+
+        Args:
+            number (int | float): _description_
+
+        Returns:
+            bool: _description_
+        """
         pass
 
     def is_number_irrational(self, number: int | float) -> bool:
@@ -43,6 +61,15 @@ class Sets(BaseHalting):
         pass
 
     def is_number_real(self, number: int | float) -> bool:
+        """
+        _summary_
+
+        Args:
+            number (int | float): _description_
+
+        Returns:
+            bool: _description_
+        """
         pass
 
     
