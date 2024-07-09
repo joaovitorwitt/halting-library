@@ -8,7 +8,8 @@ from src.halting.base import BaseHalting
 ##################################################
 class Sets(BaseHalting):
     
-    def is_number_natural(self, number: int | float) -> bool:
+    # TODO: create tests for the new include_zero flag
+    def is_number_natural(self, number: int | float, include_zero: bool = True) -> bool: 
         """
         A natural number is a number that starts at zero and goes to infinity.
         We have two types of operations with natural numbers: multiplication and
@@ -20,36 +21,65 @@ class Sets(BaseHalting):
 
         Args:
             number (int | float): The number to be checked as a natural.
+            include_zero (bool): Flag to check if we consider the zero in our set. ℕ*
 
         Returns:
             bool: True if the number is natural, False otherwise.
+
+        Example:
+            >>> is_number_natural(1)
+            True
+
+            >>> is_number_natural(0)
+            True
+            
+            >>> is_number_natural(0, include_zero=False)
+            False
         """
         self.validate_instance((int, float), number)
+        if not include_zero:
+            return int(number) > 0 and not isinstance(number, float)
         return int(number) >= 0 and not isinstance(number, float)
 
     def is_number_integer(self, number: int | float) -> bool:
         """
-        _summary_
+        In set theory, the integer numbers are represented
+        by all negative numbers and natural numbers. Now, integer
+        numbers support subtraction operations as well.
+
+        To be considered an integer value, the number still needs
+        to be whole.
 
         Args:
-            number (int | float): _description_
+            number (int | float): The number to be checked as an integer.
 
         Returns:
-            bool: _description_
+            bool: True if the number is integer, False otherwise.
+
+        Example:
+            >>> is_number_integer(-2)
+            True
+
+            >>> is_number_integer(5)
+            True
         """
         return not isinstance(number, float)
 
     def is_number_rational(self, number: int | float) -> bool:
         """
-        _summary_
+        Rational numbers came with the necessity of express measures.
+
+        The set of all rational numbers is represented by all the
+        numbers that can be written in the form of A/B, with A ∈ Z
+        and B ∈ Z*.
 
         Args:
-            number (int | float): _description_
+            number (int | float): The number to be checked as rational.
 
         Returns:
-            bool: _description_
+            bool: True if the number is rational, False otherwise.
         """
-        pass
+        return isinstance(number, (float, int))
 
     def is_number_irrational(self, number: int | float) -> bool:
         """
@@ -63,6 +93,18 @@ class Sets(BaseHalting):
     def is_number_real(self, number: int | float) -> bool:
         """
         _summary_
+
+        Args:
+            number (int | float): _description_
+
+        Returns:
+            bool: _description_
+        """
+        pass
+
+    def is_number_imaginary(self, number: int | float) -> bool:
+        """
+        I do not know anything about this.
 
         Args:
             number (int | float): _description_
