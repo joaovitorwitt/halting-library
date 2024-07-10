@@ -63,6 +63,7 @@ class Sets(BaseHalting):
             >>> is_number_integer(5)
             True
         """
+        self.validate_instance((int, float), number)
         return not isinstance(number, float)
 
     def is_number_rational(self, number: int | float) -> bool:
@@ -79,10 +80,15 @@ class Sets(BaseHalting):
         Returns:
             bool: True if the number is rational, False otherwise.
         """
+        self.validate_instance((float, int), number)
         return isinstance(number, (float, int))
 
     def is_number_irrational(self, number: int | float) -> bool:
         """
+        Irrational numbers are numbers that cannot be expressed in
+        A/B, with A ∈ Z and B ∈ Z*. They are usually not finite and
+        not a periodic decimal.
+
         I = R - Q 
 
         Irrational number are composed by the difference of Real numbers
@@ -116,4 +122,33 @@ class Sets(BaseHalting):
 
     
 
+# to check if a number is rational we need to reverse enginner into a geratriz fraction
+# if the number can be converted in a fraction, it means that it is rational.
 
+    def convert_to_fraction(self, number: int | float) -> str | None:
+        """
+        _summary_
+
+        Args:
+            number (int | float): _description_
+
+        Returns:
+            str | None: _description_
+
+        Example:
+            >>> convert_to_fraction(5.45454)
+
+        """
+
+        ####################
+        # dizima periodica simples é quando, após a vírgula, aparecem apenas
+        #  algarismos que se repetem
+
+        # 1.04545
+        # x = 1.04545
+
+        # multiply by 1000 since there is 3 different figures
+
+        # 1000x = 1045.45
+        # 
+        pass

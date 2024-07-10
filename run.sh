@@ -50,6 +50,12 @@ case $1 in
 
     ;;
 
+    deploy)
+
+    echo "Deploying Library...."
+
+    ;;
+
     *)
         echo "Option not found, use one of these: build, covereage, shell, tests."
 
