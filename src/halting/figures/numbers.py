@@ -80,7 +80,6 @@ class ManageFigures(BaseHalting):
         """
         return scientific_notation
 
-
     def convert_periodic_decimal_to_fraction(self, periodic_decimal: int | float) -> int | float:
         """
         Periodic decimal is every decimal that can only be represented using an infite number
@@ -97,7 +96,7 @@ class ManageFigures(BaseHalting):
     @classmethod
     def return_number_of_figures_in_period(cls, set_length: int) -> str:
         """
-        The purpose of this function is to take the length
+        Helper function that takes the length
         of set and return a number accordingly.
 
         Args:

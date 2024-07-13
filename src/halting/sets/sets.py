@@ -148,7 +148,7 @@ class Sets(BaseHalting):
 
         # slice the list starting after the dot to extract all the decimals
         decimal = to_list[decimal_dot_index::]
-        breakpoint()
+        
 
         # get the number of figures in the decimal
         # len = 1 ==== multiply by 10
