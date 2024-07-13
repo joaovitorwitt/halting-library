@@ -2,6 +2,7 @@
 # Imports
 ##################################################
 from src.halting.base import BaseHalting
+from src.halting.figures.numbers import ManageFigures
 
 ##################################################
 # Sets Class Implementation
@@ -136,19 +137,29 @@ class Sets(BaseHalting):
             str | None: _description_
 
         Example:
-            >>> convert_to_fraction(5.45454)
-
+            >>> convert_to_fraction(1.353535)
+            '134/99'
         """
+        # convert the number to a list of strings
+        to_list = list(str(number))
 
-        ####################
-        # dizima periodica simples é quando, após a vírgula, aparecem apenas
-        #  algarismos que se repetem
+        # get the index of the dot
+        decimal_dot_index = to_list.index('.') + 1
 
-        # 1.04545
-        # x = 1.04545
+        # slice the list starting after the dot to extract all the decimals
+        decimal = to_list[decimal_dot_index::]
+        breakpoint()
 
-        # multiply by 1000 since there is 3 different figures
+        # get the number of figures in the decimal
+        # len = 1 ==== multiply by 10
+        # len = 2 ==== multiply by 100
+        # len = 3 === multiply by 1000
+        # ... ...
+        periodic = ManageFigures.return_number_of_figures_in_period(len(set(decimal)))
 
-        # 1000x = 1045.45
-        # 
-        pass
+        x_value = periodic * number
+
+        return periodic
+        
+        
+

@@ -93,3 +93,27 @@ class ManageFigures(BaseHalting):
             int | float: _description_
         """
         pass
+
+    @classmethod
+    def return_number_of_figures_in_period(cls, set_length: int) -> str:
+        """
+        The purpose of this function is to take the length
+        of set and return a number accordingly.
+
+        Args:
+            set_length (set): _description_
+
+        Returns:
+            int: The number based on the length of the set
+
+        Example:
+            >>> return_number_of_figures_in_period(1)
+            10
+
+            >>> return_number_of_figures_in_period(2)
+            100
+
+            >>> return_number_of_figures_in_period(3)
+            1000
+        """
+        return int('1'.ljust(set_length + 1, '0'))
