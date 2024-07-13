@@ -2,14 +2,14 @@
 # Imports
 ##################################################
 from src.halting.base import BaseHalting
-from src.halting.figures.numbers import ManageFigures
+
+
 
 ##################################################
 # Sets Class Implementation
 ##################################################
 class Sets(BaseHalting):
     
-    # TODO: create tests for the new include_zero flag
     def is_number_natural(self, number: int | float, include_zero: bool = True) -> bool: 
         """
         A natural number is a number that starts at zero and goes to infinity.
@@ -126,40 +126,7 @@ class Sets(BaseHalting):
 # to check if a number is rational we need to reverse enginner into a geratriz fraction
 # if the number can be converted in a fraction, it means that it is rational.
 
-    def convert_to_fraction(self, number: int | float) -> str | None:
-        """
-        _summary_
-
-        Args:
-            number (int | float): _description_
-
-        Returns:
-            str | None: _description_
-
-        Example:
-            >>> convert_to_fraction(1.353535)
-            '134/99'
-        """
-        # convert the number to a list of strings
-        to_list = list(str(number))
-
-        # get the index of the dot
-        decimal_dot_index = to_list.index('.') + 1
-
-        # slice the list starting after the dot to extract all the decimals
-        decimal = to_list[decimal_dot_index::]
-        
-
-        # get the number of figures in the decimal
-        # len = 1 ==== multiply by 10
-        # len = 2 ==== multiply by 100
-        # len = 3 === multiply by 1000
-        # ... ...
-        periodic = ManageFigures.return_number_of_figures_in_period(len(set(decimal)))
-
-        x_value = periodic * number
-
-        return periodic
+    
         
         
 

@@ -3,6 +3,7 @@
 ##################################################
 # https://packaging.python.org/en/latest/tutorials/packaging-projects/
 from src.halting.base import BaseHalting
+from src.halting.utils import Utils
 
 ##################################################
 # Significant Figures Implementation
@@ -79,40 +80,41 @@ class ManageFigures(BaseHalting):
             >>> figures.scientific_notation_to_integer(5.6)
         """
         return scientific_notation
-
-    def convert_periodic_decimal_to_fraction(self, periodic_decimal: int | float) -> int | float:
+    
+    # currently, this only works for simple decimal numbers
+    def convert_decimal_to_fraction(self, number: int | float) -> str | None:
         """
-        Periodic decimal is every decimal that can only be represented using an infite number
-        of decimal points, and there is also a repetition in the figures.
+        This function takes a float value and converts to a fraction
+        to check if the number is rational.
 
         Args:
-            periodic_decimal (int | float): _description_
+            number (float): The number with decimal point for checking.
 
         Returns:
-            int | float: _description_
-        """
-        pass
-
-    @classmethod
-    def return_number_of_figures_in_period(cls, set_length: int) -> str:
-        """
-        Helper function that takes the length
-        of set and return a number accordingly.
-
-        Args:
-            set_length (set): _description_
-
-        Returns:
-            int: The number based on the length of the set
+            str | None: The fraction representation of the number if possible, othewise returns None.
 
         Example:
-            >>> return_number_of_figures_in_period(1)
-            10
-
-            >>> return_number_of_figures_in_period(2)
-            100
-
-            >>> return_number_of_figures_in_period(3)
-            1000
+            >>> convert_to_fraction(1.3535)
+            '134/99'
         """
-        return int('1'.ljust(set_length + 1, '0'))
+        x = number
+
+        # convert the number to a list of strings
+        to_list = list(str(number))
+        # get the index of the dot
+        decimal_dot_index = to_list.index('.') + 1
+        # slice the list starting after the dot to extract all the decimals
+        decimal = len(set(to_list[decimal_dot_index::]))
+        periodic = Utils.multiplication_factor_in_repeating_sequence(decimal)
+
+        x_value = periodic * number
+        
+        first_op = x_value - x
+
+        second_op = periodic - 1 # this 1 shouldnt be hardcoded (this will only work if the repeating sequence is up to 2)
+
+        return f'{round(first_op)}/{second_op}'
+
+        
+
+
