@@ -37,8 +37,19 @@ class BaseHalting:
             if not isinstance(arg, (instance_type)):
                 raise TypeError(f"'{type(arg).__name__}' is not allowed.")
             
-
     def __eq__(self, value: object) -> bool:
+        """
+        Condition that we define for both objects
+        to be equal. In this case we are saying that
+        two objects will be equal if their dictionary
+        is the same.
+
+        Args:
+            value (object): the object to be validated against the instance
+
+        Returns:
+            bool: True, if the objects are equal, False otherwise.
+        """
         return self.__dict__ == value.__dict__
     
     

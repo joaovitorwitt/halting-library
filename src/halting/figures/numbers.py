@@ -100,9 +100,11 @@ class ManageFigures(BaseHalting):
         x = number
 
         # convert the number to a list of strings
-        to_list = list(str(number))
+        to_list = Utils.convert_integer_to_list(number)
+
         # get the index of the dot
         decimal_dot_index = to_list.index('.') + 1
+        
         # slice the list starting after the dot to extract all the decimals
         decimal = len(set(to_list[decimal_dot_index::]))
         periodic = Utils.multiplication_factor_in_repeating_sequence(decimal)
