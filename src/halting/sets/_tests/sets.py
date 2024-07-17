@@ -47,6 +47,12 @@ class SetsTestCase(TestCase):
         self.assertFalse(self.sets.is_number_integer(-0.2))
         self.assertFalse(self.sets.is_number_integer(4/3))
 
+    def test_is_number_integer_with_invalid_type_raises_error(self):
+        with self.assertRaises(TypeError) as context:
+            self.sets.is_number_integer('asd')
+
+        self.assertEqual(str(context.exception), "'str' is not allowed.")
+
     ##################################################
     # Rational Numbers Test Case Implementation
     ##################################################
@@ -61,3 +67,4 @@ class SetsTestCase(TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -3,8 +3,6 @@
 ##################################################
 from src.halting.base import BaseHalting
 
-
-
 ##################################################
 # Sets Class Implementation
 ##################################################
@@ -99,25 +97,26 @@ class Sets(BaseHalting):
 
     def is_number_real(self, number: int | float) -> bool:
         """
-        _summary_
+        In set theory, real numbers include irrational, rational, integers,
+        and whole numbers.
 
         Args:
-            number (int | float): _description_
+            number (int | float): The number to be validated.
 
         Returns:
-            bool: _description_
+            bool: True, if the number is considered a real number. False otherwise.
         """
-        pass
+        return isinstance(number, (int, float))
 
     def is_number_imaginary(self, number: int | float) -> bool:
         """
         I do not know anything about this.
 
         Args:
-            number (int | float): _description_
+            number (int | float): The number to be checked as imaginary.
 
         Returns:
-            bool: _description_
+            bool: True, if the number is imaginary, False otherwise.
         """
         pass
 
@@ -125,8 +124,3 @@ class Sets(BaseHalting):
 
 # to check if a number is rational we need to reverse enginner into a geratriz fraction
 # if the number can be converted in a fraction, it means that it is rational.
-
-    
-        
-        
-

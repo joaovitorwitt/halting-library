@@ -10,6 +10,16 @@ class Utils(BaseHalting):
     @classmethod
     def multiplication_factor_in_repeating_sequence(cls, set_length: int) -> str:
         """
+        When we are trying to find the fraction from which the rational number
+        was generated we need to multiply the decimal numbers by a specific factor.
+
+        For instance, lets say that our number is '2.454545'.
+
+        After the decimal point we are able to tell that we have 2 different numbers,
+        the '4' and the '5'. Since there are 2 we must multiply in the calculation by
+        100. If it was only '1', like in this example: 2.777, we would multiply later
+        in the equation by 10.
+
         Helper function that takes the length
         of a set and return a number accordingly.
 
@@ -93,4 +103,4 @@ class Utils(BaseHalting):
             >>> Utils.slice_list_from_ending_index(3, ['a', 'b', 'c', 'd', 'e', 'f'])
             ['a', 'b', 'c']
         """
-        return list_element[:index:-1]
+        return list_element[:-index:]
