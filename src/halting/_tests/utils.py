@@ -40,5 +40,29 @@ class UtilsTestCase(TestCase):
 
         self.assertEqual(str(context.exception), "'str' is not allowed.")
 
+    ##########################################################
+    # Slice list from starting index Test Case
+    ##########################################################
+    def test_slice_list_from_starting_index(self):
+        self.assertEqual(Utils.slice_list_from_starting_index(2, [1,2,3,4,5]), [3,4,5])
+        self.assertEqual(Utils.slice_list_from_starting_index(1, ['a', 'b', 'c', 'd', 'e']), ['b', 'c', 'd', 'e'])
+        self.assertEqual(Utils.slice_list_from_starting_index(4, [1,2,3,4,5]), [5])
+
+
+    # def test_slice_list_from_starting_index_with_invalid_instance_raises_error(self):
+    #     with self.assertRaises(TypeError) as context:
+    #         Utils.slice_list_from_starting_index(['a','b','c'], [1,2,3])
+
+    #     self.assertEqual(str(context.exception), "something")
+
+    ##########################################################
+    # Slice list from ending index Test Case
+    ##########################################################
+    def test_slice_list_from_ending_index(self): # 
+        self.assertEqual(Utils.slice_list_from_ending_index(3, ['a', 'b', 'c', 'd', 'e', 'f']), ['a', 'b', 'c'])
+        # self.assertEqual(Utils.slice_list_from_ending_index(4, ['a', 'b', 'c', 'd', 'e', 'f']), ['a', 'b'])
+        # self.assertEqual(Utils.slice_list_from_ending_index(5, ['a', 'b', 'c', 'd', 'e', 'f']), ['a'])
+
+
 if __name__ == "__main__":
     unittest.main()

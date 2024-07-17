@@ -1,8 +1,10 @@
-
+##################################################
+# Imports
+##################################################
 from src.halting.base import BaseHalting
 
 ##################################################
-# Utils
+# Utils Implementation
 ##################################################
 class Utils(BaseHalting):
     @classmethod
@@ -55,25 +57,40 @@ class Utils(BaseHalting):
         return list(str(number))
 
     @classmethod
-    def extract_list_element_from_starting_index(cls, index: int, list_element: list) -> list:
+    def slice_list_from_starting_index(cls, index: int, list_element: list) -> list:
         """
-        This function takes a list and a index as argument
-        and slices the list starting from the given `index`
+        This function takes a list and an index as arguments
+        and slices the list starting from the given `index`. In other words
 
         Args:
-            index (int):
-            list_element (list):
+            index (int): The index element to perform the slicing.
+            list_element (list): The list to be sliced.
 
         Returns:
             list: The new sliced list.
 
         Example:
-            >>> Utils.extract_list_element_from_starting_index(2, ['a', 'b', 'c', 'd', 'e', 'f'])
+            >>> Utils.slice_list_from_starting_index(2, ['a', 'b', 'c', 'd', 'e', 'f'])
             ['c', 'd', 'e', 'f']
         """
-
-        pass
+        cls.validate_instance(cls, (int, list), index, list_element) # validation is not working as expected
+        return list_element[index::]
 
     @classmethod
-    def extract_list_element_from_ending_index(cls):
-        pass
+    def slice_list_from_ending_index(cls, index: int, list_element: list) -> list:
+        """
+        This function takes a list and an index as arguments and slices the list starting
+        from the end at the given `index`.
+
+        Args:
+            index (int): The index element to perform the slicing.
+            list_element (list): The list to be sliced.
+
+        Returns:
+            list: The new sliced list.
+
+        Example:
+            >>> Utils.slice_list_from_ending_index(3, ['a', 'b', 'c', 'd', 'e', 'f'])
+            ['a', 'b', 'c']
+        """
+        return list_element[:index:-1]

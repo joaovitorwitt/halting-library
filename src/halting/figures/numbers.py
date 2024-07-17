@@ -106,7 +106,7 @@ class ManageFigures(BaseHalting):
         decimal_dot_index = to_list.index('.') + 1
         
         # slice the list starting after the dot to extract all the decimals
-        decimal = len(set(to_list[decimal_dot_index::]))
+        decimal = len(set(Utils.slice_list_from_starting_index(decimal_dot_index, to_list)))
         periodic = Utils.multiplication_factor_in_repeating_sequence(decimal)
 
         x_value = periodic * number
@@ -116,7 +116,3 @@ class ManageFigures(BaseHalting):
         second_op = periodic - 1 # this 1 shouldnt be hardcoded (this will only work if the repeating sequence is up to 2)
 
         return f'{round(first_op)}/{second_op}'
-
-        
-
-
