@@ -56,6 +56,15 @@ class UtilsTestCase(TestCase):
         self.assertEqual(Utils.slice_list_from_ending_index(4, ['a', 'b', 'c', 'd', 'e', 'f']), ['a', 'b'])
         self.assertEqual(Utils.slice_list_from_ending_index(5, ['a', 'b', 'c', 'd', 'e', 'f']), ['a'])
 
+
+    ##########################################################
+    # Get Decimal Point in float value Test Case
+    ##########################################################
+    def test_get_decimal_point_in_float_value(self):
+        self.assertEqual(Utils.get_decimal_point_in_float_value(['1','.', '2','2','2']), 2)
+        self.assertEqual(Utils.get_decimal_point_in_float_value(['1','2','2','.', '9']), 4)
+        self.assertEqual(Utils.get_decimal_point_in_float_value(['1','5','.', '2','2','2']), 3)
+
 if __name__ == "__main__":
     unittest.main()
 

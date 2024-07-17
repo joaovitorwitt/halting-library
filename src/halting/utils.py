@@ -103,4 +103,28 @@ class Utils(BaseHalting):
             >>> Utils.slice_list_from_ending_index(3, ['a', 'b', 'c', 'd', 'e', 'f'])
             ['a', 'b', 'c']
         """
+        # TODO: validation
         return list_element[:-index:]
+
+
+    @classmethod
+    def get_decimal_point_in_float_value(cls, float_element: list) -> int:
+        """
+        This function takes a float value converted to a list and
+        returns the index of the decimal point. This function is
+        useful for performing operations on numbers after the decimal
+        value.
+
+        Args:
+            float_element (list): The float value formatted as a list
+
+        Returns:
+            int: The index of the first value after the decimal point.
+        """
+        # TODO: edge case where the last element is the actual '.'
+        # TODO: validation of instance and value
+        try:
+            return float_element.index('.') + 1
+        except ValueError as exc:
+            raise ValueError("'.' is no in the list") from exc
+        

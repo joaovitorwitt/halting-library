@@ -103,7 +103,7 @@ class ManageFigures(BaseHalting):
         to_list = Utils.convert_integer_to_list(number)
 
         # get the index of the dot
-        decimal_dot_index = to_list.index('.') + 1
+        decimal_dot_index = Utils.get_decimal_point_in_float_value(to_list)
         
         # slice the list starting after the dot to extract all the decimals
         decimal = len(set(Utils.slice_list_from_starting_index(decimal_dot_index, to_list)))
