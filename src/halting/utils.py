@@ -83,7 +83,6 @@ class Utils(BaseHalting):
             >>> Utils.slice_list_from_starting_index(2, ['a', 'b', 'c', 'd', 'e', 'f'])
             ['c', 'd', 'e', 'f']
         """
-        cls.validate_instance(cls, (int, list), index, list_element) # validation is not working as expected
         return list_element[index::]
 
     @classmethod
@@ -103,9 +102,9 @@ class Utils(BaseHalting):
             >>> Utils.slice_list_from_ending_index(3, ['a', 'b', 'c', 'd', 'e', 'f'])
             ['a', 'b', 'c']
         """
-        # TODO: validation
+        cls.validate_instance(cls, int, index)
+        cls.validate_instance(cls, list, list_element)
         return list_element[:-index:]
-
 
     @classmethod
     def get_decimal_point_in_float_value(cls, float_element: list) -> int:
@@ -122,7 +121,7 @@ class Utils(BaseHalting):
             int: The index of the first value after the decimal point.
         """
         # TODO: edge case where the last element is the actual '.'
-        # TODO: validation of instance and value
+        cls.validate_instance(cls, list, float_element)
         try:
             return float_element.index('.') + 1
         except ValueError as exc:

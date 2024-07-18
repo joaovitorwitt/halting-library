@@ -56,7 +56,6 @@ class UtilsTestCase(TestCase):
         self.assertEqual(Utils.slice_list_from_ending_index(4, ['a', 'b', 'c', 'd', 'e', 'f']), ['a', 'b'])
         self.assertEqual(Utils.slice_list_from_ending_index(5, ['a', 'b', 'c', 'd', 'e', 'f']), ['a'])
 
-
     ##########################################################
     # Get Decimal Point in float value Test Case
     ##########################################################

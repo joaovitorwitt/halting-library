@@ -52,6 +52,27 @@ class BaseHalting:
         """
         return self.__dict__ == value.__dict__
     
+
+
+    def key_value_validation(self, **kwargs: Any) -> bool:
+        """
+        The purpose of this method is to validate the value and its
+        instance when the function has more than one inputs.
+        
+
+        Args:
+            **kwargs: The key value pair containing the
+
+        Returns:
+            bool: _description_
+        """
+        breakpoint()
+        for key, value in kwargs.items():
+            if not isinstance(key, value):
+                raise TypeError("Invalid instance.")
+            
+        return "niggas"
+    
     
 
 
