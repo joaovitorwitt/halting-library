@@ -39,7 +39,7 @@ case $1 in
         
         echo "Running tests..."
         
-        python -m unittest ${TESTS}
+        python -m unittest -v ${TESTS}
         EXIT_CODE=$?
     ;;
 

@@ -81,7 +81,8 @@ class ManageFigures(BaseHalting):
         """
         return scientific_notation
     
-    # currently, this only works for simple decimal numbers
+    # currently, this only works for simple decimal numbers. Like these ones:
+    # 0.161616 , 2.77777
     def convert_decimal_to_fraction(self, number: int | float) -> str | None:
         """
         This function takes a float value and converts to a fraction

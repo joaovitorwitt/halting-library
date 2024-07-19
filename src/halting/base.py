@@ -62,7 +62,7 @@ class BaseHalting:
             **kwargs: The key value pair containing the
 
         Returns:
-            bool: _description_
+            bool: True if all the arguments have their correct instance
         """
         for key, value in kwargs.items():
             if not isinstance(key, value):
