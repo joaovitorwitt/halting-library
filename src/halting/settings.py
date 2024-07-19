@@ -1,1 +1,24 @@
-# this file will contain environment variables
+##################################################
+# Imports
+##################################################
+from math import pi, e
+
+##################################################
+# Mathematical Constants
+##################################################
+PI = pi
+ZERO = 0
+EULER_CONSTANT = e
+PHI = (1 + 5 ** 0.5) / 2
+
+##################################################
+# Physical Constants
+##################################################
+SPEED_OF_LIGHT = 299792458
+
+
+
+
+# TODO ????
+def import_all_constants():
+    pass

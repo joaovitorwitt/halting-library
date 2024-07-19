@@ -1,7 +1,7 @@
 ##################################################
 # Imports
 ##################################################
-from math import pi
+from src.halting import settings
 
 from src.halting.base import BaseHalting
 
@@ -29,7 +29,7 @@ class VolumeFormulas(BaseHalting):
             25.12 (with pi as 3.14)
         """
         self.validate(height, base_radius)
-        cylinder = height*pi*(pow(base_radius, 2))
+        cylinder = height* settings.PI *(pow(base_radius, 2))
         return round(cylinder, 4)
     
     def calculate_sphere_volume(self, radius: int | float) -> int | float:
@@ -49,7 +49,7 @@ class VolumeFormulas(BaseHalting):
         """
         self.validate(radius)
 
-        sphere = (4*pi*(pow(radius, 3))) / 3
+        sphere = (4 * settings.PI * (pow(radius, 3))) / 3
         return round(sphere, 4)
     
     def calculate_cube_volume(self, edge_length: int | float) -> int | float:
@@ -91,7 +91,7 @@ class VolumeFormulas(BaseHalting):
         """
         self.validate(base_radius, height)
 
-        cone_formula = (pi * pow(base_radius, 2) * height) / 3
+        cone_formula = (settings.PI * pow(base_radius, 2) * height) / 3
         return round(cone_formula, 4)
 
     def calculate_rectangle_volume(self, length: int | float, height: int | float, width: int | float) -> int | float:
@@ -137,7 +137,7 @@ class VolumeFormulas(BaseHalting):
         """
         self.validate(height, ball_radius)
 
-        spherical_cap = (pi / 3) * pow(height, 2) * (3*ball_radius - height)
+        spherical_cap = (settings.PI / 3) * pow(height, 2) * (3*ball_radius - height)
         return round(spherical_cap, 4)
 
     def calculate_capsule_volume(self, base_radius: int | float, height: int | float) -> int | float:
@@ -159,7 +159,7 @@ class VolumeFormulas(BaseHalting):
         """
         self.validate(base_radius, height)
 
-        capsule = pi * pow(base_radius, 2) * (((4/3)* base_radius) + height)
+        capsule = settings.PI * pow(base_radius, 2) * (((4/3)* base_radius) + height)
         return round(capsule, 4)
 
     def calculate_ellipsoid_volume(self, axis_a: int | float, axis_b: int | float, axis_c: int | float) -> int | float:
@@ -182,5 +182,5 @@ class VolumeFormulas(BaseHalting):
         """
         self.validate(axis_a, axis_b, axis_c)
 
-        ellipsoid = (4 * pi * axis_a * axis_b * axis_c) / 3
+        ellipsoid = (4 * settings.PI * axis_a * axis_b * axis_c) / 3
         return round(ellipsoid, 4)

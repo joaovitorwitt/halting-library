@@ -1,8 +1,9 @@
 ##################################################
 # Imports
 ##################################################
-from math import pi
 from src.halting.base import BaseHalting
+
+from src.halting import settings
 
 ##################################################
 # Area Formulas Implementation
@@ -96,5 +97,5 @@ class AreaFormulas(BaseHalting):
         """
         self.validate(radius)
 
-        circle = pi * pow(radius, 2)
+        circle = settings.PI * pow(radius, 2)
         return round(circle, 4)
