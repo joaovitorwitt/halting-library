@@ -24,10 +24,11 @@ class Utils(BaseHalting):
         of a set and return a number accordingly.
 
         This function is used to identify the number of elements in a periodic 
-        fraction. For instance: "2.454545", this 
+        fraction. For instance: "2.454545", this means there are two different
+        figures after the decimal point, with that in mind we return 100.
 
         Args:
-            set_length (set): _description_
+            set_length (set): The length of a set indicating how many figures will be inside.
 
         Returns:
             int: The number based on the length of the set

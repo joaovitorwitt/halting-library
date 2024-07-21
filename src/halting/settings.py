@@ -16,9 +16,9 @@ PHI = (1 + 5 ** 0.5) / 2
 ##################################################
 SPEED_OF_LIGHT = 299792458
 
+# TODO
+# Hubbles Constant
 
 
 
-# TODO ????
-def import_all_constants():
-    pass
+

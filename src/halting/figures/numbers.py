@@ -81,6 +81,9 @@ class ManageFigures(BaseHalting):
         """
         return scientific_notation
     
+
+
+    
     # currently, this only works for simple decimal numbers. Like these ones:
     # 0.161616 , 2.77777
     def convert_decimal_to_fraction(self, number: int | float) -> str | None:
@@ -117,3 +120,35 @@ class ManageFigures(BaseHalting):
         second_op = periodic - 1 # this 1 shouldnt be hardcoded (this will only work if the repeating sequence is up to 2)
 
         return f'{round(first_op)}/{second_op}'
+
+
+
+    def is_number_prime(self, number: int) -> bool:
+        """
+        A prime number is a whole number greater
+        than one that has only two factors one
+        and itself. In other words, it can only
+        be divided by one and itself.
+        
+        This function checks whether a number is prime
+        or not by returing a boolean value.
+
+        Args:
+            number (int): The number to be checked as prime.
+
+        Returns:
+            bool: True if the number is a prime number, False otherwise.
+
+        Example:
+            >>> is_number_prime(17)
+            True
+
+            >>> is_number_prime(2)
+            True
+
+            >>> is_number_prime(10)
+            False
+        """
+        # sieve of eratosthenes  https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html
+        # here these is also a method https://www.splashlearn.com/math-vocabulary/algebra/prime-number
+        pass
