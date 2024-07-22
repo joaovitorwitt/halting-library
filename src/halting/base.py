@@ -69,9 +69,6 @@ class BaseHalting:
                 raise TypeError("Invalid instance.")
             
         return "jhhh"
-    
-    
-
 
     
         

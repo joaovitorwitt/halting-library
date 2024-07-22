@@ -63,6 +63,7 @@ class ManageFigures(BaseHalting):
                     break
             return len(to_list) - (leading_number_of_zeros + 1)
 
+    # TODO
     def scientific_notation_to_integer(self, scientific_notation: int | float) -> int | float:
         """
         Takes a scientific notation if the format: `4.4e5` and converts to its integer value.
@@ -84,7 +85,7 @@ class ManageFigures(BaseHalting):
 
 
     
-    # currently, this only works for simple decimal numbers. Like these ones:
+    # TODO: currently, this only works for simple decimal numbers. Like these ones:
     # 0.161616 , 2.77777
     def convert_decimal_to_fraction(self, number: int | float) -> str | None:
         """
@@ -121,8 +122,6 @@ class ManageFigures(BaseHalting):
 
         return f'{round(first_op)}/{second_op}'
 
-
-
     def is_number_prime(self, number: int) -> bool:
         """
         A prime number is a whole number greater
@@ -149,39 +148,82 @@ class ManageFigures(BaseHalting):
             >>> is_number_prime(10)
             False
         """
-        # sieve of eratosthenes  https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html
-        # here these is also a method https://www.splashlearn.com/math-vocabulary/algebra/prime-number
-        pass
+        self.validate_instance(int, number)
+        return_value = ManageFigures().sieve_of_erastosthenes(number)
+        return number in return_value
+    
+    def is_number_composite(self, number: int) -> bool:
+        """
+        This function checks if the given `number` is
+        a composite number or not.
 
+        A composite number is a number obtained after
+        multiplying two prime numbers.
 
-    def prime_number_algorithm(self, n: int) -> list:
+        Args:
+            number (int): The number that will be checked as composite.
+
+        Returns:
+            bool: True if the number is composite, False otherwise.
+
+        Example:
+            >>> is_number_composite(2)
+            False
+
+            >>> is_number_composite(10)
+            True
+
+            >>> is_number_composite(13)
+            False
+        """
+        self.validate_instance(int, number)
+        return_value = ManageFigures().sieve_of_erastosthenes(number)
+        return number not in return_value
+
+    def sieve_of_erastosthenes(self, n: int) -> list:
         """
         This function lists all prime numbers between
-        2 and `number_range` inclusive.
-        
-        [2, n]
+        0 and `number_range` inclusive.
+
+        Args:
+            n (int): The limit number for listing the prime numbers.
+
+        Returns:
+            list: The all containing all prime numbers between 2 and n inclusive.
+
+        Example:
+            >>> sieve_of_erastosthenes(20)
+            [2, 3, 5, 7, 11, 13, 17, 19]
         
         1st write all number between 2 and n
         2nd mark all proper multiples of 2 as composite
         3rd find next number that hasnt been marker as composite
         4th in this case, 3, which means that 3 is prime
         5th mark all proper multiple of 3 as composite
-
-        
-        Note: a proper multiple of a number x is a number
-        greater than x and divisible by x
-
-        value = 2
-
-        []
-        if value is 
         """
-        list_elements = [value for value in range(2, n+1)]
-        for index, value in enumerate(list_elements):
-            ...
+        self.validate_instance(int, n)
 
+        list_of_primes = []
 
+        prime = [True for i in range(n + 1)]
+        p = 2
 
+        while p * p <= n:
+
+            if prime[p]:
+
+                for i in range(p * p, n + 1, p):
+                    prime[i] = False
+
+            p += 1
+
+        for p in range(2, n + 1):
+            if prime[p]:
+                list_of_primes.append(p)
+
+        return list_of_primes
+
+    # TODO
     def check_if_number_is_multiple_of_another_number(self, x: int, y: int) -> bool:
         """
         This function checks wheter x is a proper multiple of y
