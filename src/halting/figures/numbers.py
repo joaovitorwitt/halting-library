@@ -152,3 +152,42 @@ class ManageFigures(BaseHalting):
         # sieve of eratosthenes  https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html
         # here these is also a method https://www.splashlearn.com/math-vocabulary/algebra/prime-number
         pass
+
+
+    def prime_number_algorithm(self, n: int) -> list:
+        """
+        This function lists all prime numbers between
+        2 and `number_range` inclusive.
+        
+        [2, n]
+        
+        1st write all number between 2 and n
+        2nd mark all proper multiples of 2 as composite
+        3rd find next number that hasnt been marker as composite
+        4th in this case, 3, which means that 3 is prime
+        5th mark all proper multiple of 3 as composite
+
+        
+        Note: a proper multiple of a number x is a number
+        greater than x and divisible by x
+
+        value = 2
+
+        []
+        if value is 
+        """
+        list_elements = [value for value in range(2, n+1)]
+        for index, value in enumerate(list_elements):
+            ...
+
+
+
+    def check_if_number_is_multiple_of_another_number(self, x: int, y: int) -> bool:
+        """
+        This function checks wheter x is a proper multiple of y
+
+        A proper multiple of a number x is a number greater
+        than x and divisible by x
+        """
+        pass
+
