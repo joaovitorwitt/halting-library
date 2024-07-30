@@ -5,6 +5,8 @@
 from src.halting.base import BaseHalting
 from src.halting.utils import Utils
 
+from src.halting.core.algorithms import Algorithms
+
 ##################################################
 # Significant Figures Implementation
 ##################################################
@@ -82,7 +84,42 @@ class ManageFigures(BaseHalting):
         """
         return scientific_notation
     
+    # TODO: add 'written' notation type 
+    def convert_number_to_scientific_notation(self, number: int | float, notation_type: str = 'e') -> str:
+        """
+        Scientific notation is a way of representing numbers that are either
+        too low or to large, for instance the radius of an atom.
 
+        This function takes a number as argument and returns that same
+        number now is scientific notation format.
+
+        Args:
+            number (int): The number to be converted to scientif notation.
+            notation_type (str): The way you wish the number is represented, the options are `e`, `n`, and `eng`. Defaults to `e`.
+
+        Returns:
+            str: The number now in scientific notation.
+
+        Example:
+            >>> convert_number_to_scientific_notation(50000000)
+            '5e7'
+
+            >>> convert_number_to_scientific_notation(0.00000000098)
+            '9.8e-10'
+
+            >>> convert_number_to_scientific_notation(120000000, notation_type='n')
+            '1.2 x 10^-8'
+        """
+        self.validate_instance((int, float), number)
+        self.validate_instance(str, notation_type)
+        
+        # number greater than zero means move the decimal to the left
+        # 50000 === 5.0000 === 5e4
+        
+        # number less than zero means move the decimal to the right
+        # 0.0005 == 00005. === 5e-4
+
+        
 
     
     # TODO: currently, this only works for simple decimal numbers. Like these ones:
@@ -149,7 +186,7 @@ class ManageFigures(BaseHalting):
             False
         """
         self.validate_instance(int, number)
-        return_value = ManageFigures().sieve_of_erastosthenes(number)
+        return_value = Algorithms().sieve_of_erastosthenes(number)
         return number in return_value
     
     def is_number_composite(self, number: int) -> bool:
@@ -177,51 +214,10 @@ class ManageFigures(BaseHalting):
             False
         """
         self.validate_instance(int, number)
-        return_value = ManageFigures().sieve_of_erastosthenes(number)
+        return_value = Algorithms().sieve_of_erastosthenes(number)
         return number not in return_value
 
-    def sieve_of_erastosthenes(self, n: int) -> list:
-        """
-        This function lists all prime numbers between
-        0 and `number_range` inclusive.
 
-        Args:
-            n (int): The limit number for listing the prime numbers.
-
-        Returns:
-            list: The all containing all prime numbers between 2 and n inclusive.
-
-        Example:
-            >>> sieve_of_erastosthenes(20)
-            [2, 3, 5, 7, 11, 13, 17, 19]
-        
-        1st write all number between 2 and n
-        2nd mark all proper multiples of 2 as composite
-        3rd find next number that hasnt been marker as composite
-        4th in this case, 3, which means that 3 is prime
-        5th mark all proper multiple of 3 as composite
-        """
-        self.validate_instance(int, n)
-
-        list_of_primes = []
-
-        prime = [True for i in range(n + 1)]
-        p = 2
-
-        while p * p <= n:
-
-            if prime[p]:
-
-                for i in range(p * p, n + 1, p):
-                    prime[i] = False
-
-            p += 1
-
-        for p in range(2, n + 1):
-            if prime[p]:
-                list_of_primes.append(p)
-
-        return list_of_primes
 
     # TODO
     def check_if_number_is_multiple_of_another_number(self, x: int, y: int) -> bool:
@@ -232,4 +228,3 @@ class ManageFigures(BaseHalting):
         than x and divisible by x
         """
         pass
-

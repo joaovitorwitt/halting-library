@@ -37,15 +37,6 @@ class ManageFiguresTestCase(TestCase):
         self.assertEqual(self.figures.convert_decimal_to_fraction(4.555555), '41/9')
         self.assertEqual(self.figures.convert_decimal_to_fraction(2.777777), '25/9')
 
-
-    ######################################################
-    # Sieve Of Erastosthenes Algorithm Test Case
-    ######################################################
-    def test_sieve_of_erastosthenes(self):
-        self.assertListEqual(self.figures.sieve_of_erastosthenes(20), [2, 3, 5, 7, 11, 13, 17, 19])
-        self.assertListEqual(self.figures.sieve_of_erastosthenes(100), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
-        self.assertListEqual(self.figures.sieve_of_erastosthenes(2), [2])
-
     ######################################################
     # Is Number Prime Test Case
     ######################################################
@@ -74,6 +65,16 @@ class ManageFiguresTestCase(TestCase):
         self.assertFalse(self.figures.is_number_composite(100003))
         self.assertFalse(self.figures.is_number_composite(100043))
         self.assertFalse(self.figures.is_number_composite(100057))
+
+    ######################################################
+    # Convert Number to Scientific Notation Test Case
+    ######################################################
+    # def test_convert_number_to_scientific_notaion(self):
+    #     self.assertEqual(self.figures.convert_number_to_scientific_notation(50000000), '5e7')
+    #     self.assertEqual(self.figures.convert_number_to_scientific_notation(0.00000000098), '9.8e-10')
+    #     self.assertEqual(self.figures.convert_number_to_scientific_notation(120000000, notation_type='n'), '1.2 x 10^-8')
+
+    
 
 if __name__ == "__main__":
     unittest.main()

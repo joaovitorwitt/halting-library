@@ -9,6 +9,8 @@ from src.halting.figures._tests import *
 from src.halting.sets._tests import *
 from src.halting._tests import *
 
+from src.halting.core._tests import *
+
 """
 missing imports from other modules as well
 """
