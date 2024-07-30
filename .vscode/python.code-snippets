@@ -1,20 +1,20 @@
 {
-  // "Print to console": {
-  //   "prefix": "docstring",
-  //   "body": [
-  //     "\"\"\"",
-  //     "__description__",
-  //     "",
-  //     "Args:",
-  //     "    __input__ (__type__):",
-  //     "",
-  //     "Returns:",
-  //     "    __type__",
-  //     "",
-  //     "Example:",
-  //     "    >>> ",
-  //     "\"\"\""
-  //   ],
-  //   "description": "Create a standard template for python docstrings"
-  // }
+  "Print to console": {
+    "prefix": "import_banner",
+    "body": [
+      "###########################################################################",
+      "# Imports",
+      "###########################################################################"
+    ],
+    "description": "Create the banner for import code"
+  },
+  "print": {
+    "prefix": "implementation",
+    "body": [
+      "###########################################################################",
+      "# Implementation",
+      "###########################################################################"
+    ],
+    "description": "Create the banner used for the class implementation"
+  }
 }

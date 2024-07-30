@@ -7,6 +7,13 @@ from src.halting.base import BaseHalting
 # Utils Implementation
 ##################################################
 class Utils(BaseHalting):
+    """
+    The `Utils` class is designed to keep helper methods
+    that are being used throughout the entire code.
+
+    A few example of these methods are functions that
+    convert integer to list, slice lists, and so on.
+    """
     @classmethod
     def multiplication_factor_in_repeating_sequence(cls, set_length: int) -> str:
         """
