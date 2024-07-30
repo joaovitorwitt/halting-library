@@ -1,0 +1,6 @@
+
+
+
+
+class Numbers(BaseHalting):
+    pass
