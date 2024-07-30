@@ -1,5 +1,6 @@
 
 
+from src.halting.base import BaseHalting
 
-class Statistics:
+class Statistics(BaseHalting):
     pass

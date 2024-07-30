@@ -1,5 +1,6 @@
 
 
+from src.halting.base import BaseHalting
 
-class Topology:
+class Topology(BaseHalting):
     pass

@@ -1,5 +1,7 @@
 
 
+from src.halting.base import BaseHalting
 
-class Trigonometry:
+
+class Trigonometry(BaseHalting):
     pass
