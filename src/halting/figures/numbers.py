@@ -112,12 +112,31 @@ class ManageFigures(BaseHalting):
         """
         self.validate_instance((int, float), number)
         self.validate_instance(str, notation_type)
+
+        # ['5', '0', '0', '0', '0']
+        converted = Utils.convert_integer_to_list(number)
         
         # number greater than zero means move the decimal to the left
         # 50000 === 5.0000 === 5e4
+        breakpoint()
+        if number > 0:
+            # ['5', '.', '0', '0', '0', '0']
+            converted.insert(1, '.')
+                        #|| need to create a new list starting from this value and count the number of elements
+            # ['5', '.', '0', '0', '0', '0']
+            decimal_dot = Utils.get_decimal_point_in_float_value(converted)
+
+            # ['0', '0', '0', '0'] === 4 
+            new_list = len(Utils.slice_list_from_starting_index(decimal_dot, converted))
+
+            coefficient = ''.join([x for x in converted if x != '0'])
+
+            return f'{coefficient}e{new_list}'
         
         # number less than zero means move the decimal to the right
         # 0.0005 == 00005. === 5e-4
+        if number < 0:
+            pass            
 
         
 
