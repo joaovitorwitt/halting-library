@@ -47,3 +47,8 @@ class Algorithms(BaseHalting):
                 list_of_primes.append(p)
 
         return list_of_primes
+    
+
+    # TODO: create an algorithm for swaping elements in a list
+    # an example of use case can be founded in the function that
+    # converts an integer to scientific notation
