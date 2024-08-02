@@ -135,3 +135,61 @@ class Utils(BaseHalting):
         except ValueError as exc:
             raise ValueError("'.' is no in the list") from exc
         
+
+
+    @classmethod
+    def rotate(cls, char: str, key: int) -> str:
+        """
+        This helper method takes a single character as
+        input and also a key indicating the number of 
+        places in the alphabet that character should
+        shift.
+
+        Args:
+            char (str): The single character for the rotation
+            key (int): Number of places the character should shift
+
+        Returns:
+            str: The character now shifted by the number of `key`.
+
+        Example:
+            >>> rotate('plaintext', 5)
+            'uqfnsyjcy'
+        """
+
+        # temporary variable to hold the character value
+        temp = char
+
+        if temp.isupper():
+            # first the the ascii code of the character
+            # then subtract 65
+            # adds the key value
+            # then get the remainder of the operation
+            # then add 65 again
+
+            # example:
+            # temp === C
+            # 67 - 65 = 2
+            # 2 + 3 = 5
+            # 5 % 26 = 5
+            # 5 + 65 = 70
+            # 70 converted to char gives the letter F
+            char_to_ascii = (((ord(temp) - 65 ) + key) % 26) + 65
+
+            ascii_to_char = chr(char_to_ascii)
+
+            return ascii_to_char
+        
+        if temp.islower():
+            # same idea of the uppercase, except for the values in the ascii table
+            char_to_ascii = (((ord(temp) - 97 ) + key) % 26) + 97
+
+            ascii_to_char = chr(char_to_ascii)
+
+            return ascii_to_char
+        
+        if temp.isspace():
+            return temp
+        
+        if not temp.isalnum() and not temp.isspace():
+            return temp

@@ -118,7 +118,7 @@ class ManageFigures(BaseHalting):
         
         # number greater than zero means move the decimal to the left
         # 50000 === 5.0000 === 5e4
-        if number > 0:
+        if number > 1:
             # ['5', '.', '0', '0', '0', '0']
             converted.insert(1, '.')
                         #|| need to create a new list starting from this value and count the number of elements
@@ -134,9 +134,9 @@ class ManageFigures(BaseHalting):
         
         # number less than zero means move the decimal to the right
         # 0.0005 == 00005. === 5e-4
-        if str(number)[0] == '0':
+        if number < 1:
             # ['0', '.', '0', '0', '0', '.', '5']
-            breakpoint()
+            
             converted.append('.')
 
             # remove the first decimal dot from the list

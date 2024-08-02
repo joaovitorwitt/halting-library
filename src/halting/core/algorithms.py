@@ -52,3 +52,6 @@ class Algorithms(BaseHalting):
     # TODO: create an algorithm for swaping elements in a list
     # an example of use case can be founded in the function that
     # converts an integer to scientific notation
+
+    # TODO: binary to integer
+    # TODO: integer to binary
