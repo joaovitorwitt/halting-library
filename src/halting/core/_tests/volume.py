@@ -4,7 +4,7 @@
 import unittest
 from unittest import TestCase
 
-from src.halting.formulas.volume import VolumeFormulas
+from src.halting.core.volume import VolumeFormulas
 
 ##################################################
 # Volume Class Test Case Implementation

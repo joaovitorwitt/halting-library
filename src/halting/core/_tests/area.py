@@ -4,7 +4,7 @@
 import unittest
 from unittest import TestCase
 
-from src.halting.formulas.area import AreaFormulas
+from src.halting.core.area import AreaFormulas
 
 ##################################################
 # Areas Formulas Test Case Implementation

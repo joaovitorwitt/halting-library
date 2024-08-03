@@ -35,22 +35,13 @@ class Cryptography(BaseHalting):
         Example:
             >>> caesar_chiper('hello', 3)
             'khoor'
-
-            
         """
-        # loop through the plaintext to get every letter
+        self.validate_instance((str), plaintext)
+        self.validate_instance((int), key)
+
         encrypted_text = ''
         for char in plaintext: # pylint: disable=not-an-iterable
-                encrypted_text += Utils.rotate(char, key)
+            encrypted_text += Utils.rotate(char, key)
 
         return encrypted_text
-
-        # ASCII TABLE
-        # A = 65
-        # Z = 90
-
-        # a = 97
-        # z = 122
-
-
     

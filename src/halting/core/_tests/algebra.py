@@ -4,7 +4,7 @@
 import unittest
 from unittest import TestCase
 
-from src.halting.formulas.algebra import AlgebraFormulas
+from src.halting.core.algebra import AlgebraFormulas
 
 ##################################################
 # Algebra Test Case Implementation

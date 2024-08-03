@@ -1,15 +1,7 @@
-# this file will have sets properties and representations
-
-##################################################
-# Imports
-##################################################
 from src.halting.base import BaseHalting
 
-##################################################
-# Set Operations Class Implementation
-##################################################
-class SetOperations(BaseHalting):
 
+class Sets(BaseHalting):
     def is_set_empty(self, set_value: list) -> bool:
         """
         An empty set is a set that does not have any elements.
@@ -201,7 +193,3 @@ class SetOperations(BaseHalting):
                 true_counter += 1
 
         return true_counter == length_set
-
-
-
-        

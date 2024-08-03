@@ -3,26 +3,24 @@
 ##################################################
 import unittest
 from unittest import TestCase
-from src.halting.base import BaseHalting
+
+from src.halting.math.cryptography import Cryptography
 
 ##################################################
-# Base Halting Test Case Implementation
+# Base Halting Test Case
 ##################################################
-
 class BaseHaltingTestCase(TestCase):
 
-    # TODO: there are validation tests being made through the entire codebase
-    # those tests should be moved here
-
     def setUp(self) -> None:
-        self.base_halting = BaseHalting()
-        return super().setUp()
-    
-    def test_base_halting_initialization(self):
-        pass
+        self.cryptography = Cryptography()
+
 
     def test_validate_instance(self):
-        pass
+        with self.assertRaises(TypeError) as context:
+            self.cryptography.caesar_cipher(12, 1)
+
+        self.assertEqual(str(context.exception), "'int' is not allowed.")
+
 
 if __name__ == "__main__":
     unittest.main()
