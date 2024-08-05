@@ -15,9 +15,41 @@ class NumbersTestCase(TestCase):
         self.numbers = Numbers()
         return super().setUp()
 
-    ######################################################
-    # Calculate number of significant figures Test Case
-    ######################################################
+
+    def test_is_number_natural(self):
+        self.assertTrue(self.numbers.is_number_natural(2))
+        self.assertTrue(self.numbers.is_number_natural(2))
+        self.assertTrue(self.numbers.is_number_natural(432))
+        self.assertTrue(self.numbers.is_number_natural(0))
+        self.assertFalse(self.numbers.is_number_natural(-9.3))
+        self.assertFalse(self.numbers.is_number_natural(2.3))
+        self.assertFalse(self.numbers.is_number_natural(0, include_zero=False))
+        self.assertFalse(self.numbers.is_number_natural(0.2))
+
+
+    def test_is_number_integer(self):
+        self.assertTrue(self.numbers.is_number_integer(2))
+        self.assertTrue(self.numbers.is_number_integer(-2))
+        self.assertTrue(self.numbers.is_number_integer(3))
+        self.assertTrue(self.numbers.is_number_integer(343))
+        self.assertFalse(self.numbers.is_number_integer(-0.3))
+        self.assertFalse(self.numbers.is_number_integer(9.2))
+        self.assertFalse(self.numbers.is_number_integer(3.2))
+        self.assertFalse(self.numbers.is_number_integer(9.2))
+
+
+    def test_is_number_rational(self):
+        pass
+
+
+    def test_is_number_irrational(self):
+        pass
+
+
+    def test_is_number_real(self):
+        pass
+
+
     def test_calculate_number_of_significant_figures(self):
         self.assertEqual(self.numbers.calculate_number_of_significant_figures('1200200'), 5)
         self.assertEqual(self.numbers.calculate_number_of_significant_figures('345'), 3)
@@ -28,6 +60,17 @@ class NumbersTestCase(TestCase):
         self.assertEqual(self.numbers.calculate_number_of_significant_figures('0.01020'), 4)
         self.assertEqual(self.numbers.calculate_number_of_significant_figures('3223.100'), 7)
         self.assertEqual(self.numbers.calculate_number_of_significant_figures('0.02920'), 4)
+
+
+    def test_scientific_notation_to_integer(self):
+        pass
+
+
+    def test_convert_number_to_scientific_notaion(self):
+        self.assertEqual(self.numbers.convert_number_to_scientific_notation(50000000), '5e7')
+        self.assertEqual(self.numbers.convert_number_to_scientific_notation(45600000), '4.56e7')
+        self.assertEqual(self.numbers.convert_number_to_scientific_notation(0.00000000098), '9.8e-10')
+        self.assertEqual(self.numbers.convert_number_to_scientific_notation(120000000, notation_type='n'), '1.2 x 10^-8')
 
     ######################################################
     # Convert Decimal to Fraction Test Case
@@ -65,15 +108,7 @@ class NumbersTestCase(TestCase):
         self.assertFalse(self.numbers.is_number_composite(100003))
         self.assertFalse(self.numbers.is_number_composite(100043))
         self.assertFalse(self.numbers.is_number_composite(100057))
-
-    ######################################################
-    # Convert Number to Scientific Notation Test Case
-    ######################################################
-    # def test_convert_number_to_scientific_notaion(self):
-        # self.assertEqual(self.numbers.convert_number_to_scientific_notation(50000000), '5e7')
-        # self.assertEqual(self.numbers.convert_number_to_scientific_notation(45600000), '4.56e7')
-        # self.assertEqual(self.numbers.convert_number_to_scientific_notation(0.00000000098), '9.8e-10')
-        # self.assertEqual(self.numbers.convert_number_to_scientific_notation(120000000, notation_type='n'), '1.2 x 10^-8')
+    
 
     
 

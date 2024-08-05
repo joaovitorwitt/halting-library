@@ -1,11 +1,18 @@
-
+###########################################################################
+# Imports
+###########################################################################
 from src.halting.base import BaseHalting
 from src.halting.core.algorithms import Algorithms
 from src.halting.utils import Utils
 
+###########################################################################
+# Implementation
+###########################################################################
 class Numbers(BaseHalting):
-        # TODO: move this to numbers.py (it makes more sense since we are dealing with the checking of numbers)
-    
+    """
+    The `Numbers` class is designed to handle the checking of
+    mathematical rules or the manipulation of numbers.
+    """
     def is_number_natural(self, number: int | float, include_zero: bool = True) -> bool: 
         """
         A natural number is a number that starts at zero and goes to infinity.
@@ -38,6 +45,7 @@ class Numbers(BaseHalting):
             return int(number) > 0 and not isinstance(number, float)
         return int(number) >= 0 and not isinstance(number, float)
 
+
     def is_number_integer(self, number: int | float) -> bool:
         """
         In set theory, the integer numbers are represented
@@ -63,6 +71,9 @@ class Numbers(BaseHalting):
         self.validate_instance((int, float), number)
         return not isinstance(number, float)
 
+
+    # to check if a number is rational we need to reverse enginner into a geratriz fraction
+    # if the number can be converted in a fraction, it means that it is rational.
     def is_number_rational(self, number: int | float) -> bool:
         """
         Rational numbers came with the necessity of express measures.
@@ -80,6 +91,7 @@ class Numbers(BaseHalting):
         self.validate_instance((float, int), number)
         return isinstance(number, (float, int))
 
+
     def is_number_irrational(self, number: int | float) -> bool:
         """
         Irrational numbers are numbers that cannot be expressed in
@@ -91,7 +103,8 @@ class Numbers(BaseHalting):
         Irrational number are composed by the difference of Real numbers
         and the rational numbers.
         """
-        pass
+        pass # pylint: disable=unnecessary-pass
+
 
     def is_number_real(self, number: int | float) -> bool:
         """
@@ -106,6 +119,7 @@ class Numbers(BaseHalting):
         """
         return isinstance(number, (int, float))
 
+
     def is_number_imaginary(self, number: int | float) -> bool:
         """
         I do not know anything about this.
@@ -116,12 +130,8 @@ class Numbers(BaseHalting):
         Returns:
             bool: True, if the number is imaginary, False otherwise.
         """
-        pass
+        pass # pylint: disable=unnecessary-pass
 
-    
-
-# to check if a number is rational we need to reverse enginner into a geratriz fraction
-# if the number can be converted in a fraction, it means that it is rational.
 
     def calculate_number_of_significant_figures(self, figures: str) -> int:
         """
