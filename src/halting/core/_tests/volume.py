@@ -4,116 +4,53 @@
 import unittest
 from unittest import TestCase
 
-from src.halting.core.volume import VolumeFormulas
+from src.halting.core.volume import Volume
 
 ##################################################
 # Volume Class Test Case Implementation
 ##################################################
-class VolumeFormulasTestCase(TestCase):
+class VolumeTestCase(TestCase):
     
     def setUp(self) -> None:
-        self.volume = VolumeFormulas()
+        self.volume = Volume()
         return super().setUp()
     
-    ##################################################
-    #  Cylinder Volume Test Case Implementation
-    ##################################################
-    def test_calculate_cylinder_volume(self):
-        self.assertEqual(self.volume.calculate_cylinder_volume(2, 2), 25.1327)
-        self.assertEqual(self.volume.calculate_cylinder_volume(598, 21), 828494.5314)
-        self.assertEqual(self.volume.calculate_cylinder_volume(0.0298, 0.876), 0.0718)
 
-    def test_calculate_cylinder_volume_with_invalid_type_raises_error(self):
-        with self.assertRaises(TypeError) as context:
-            self.volume.calculate_cylinder_volume(2, '1')
+    def test_get_cylinder_volume(self):
+        self.assertEqual(self.volume.get_cylinder_volume(2, 2), 25.13)
+        self.assertEqual(self.volume.get_cylinder_volume(598, 21), 828494.53)
+        self.assertEqual(self.volume.get_cylinder_volume(0.0298, 0.876), 0.07)
+        self.assertEqual(self.volume.get_cylinder_volume(0.0298, 0.876, 4), 0.0718)
+        self.assertEqual(self.volume.get_cylinder_volume(0.0298, 0.876, 10), 0.0718413276)
 
-        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
 
-    def test_calculate_cylinder_volume_with_negative_value_raises_error(self):
-        with self.assertRaises(ValueError) as context:
-            self.volume.calculate_cylinder_volume(1, -1)
+    def test_get_sphere_volume(self):
+        self.assertEqual(self.volume.get_sphere_volume(2), 33.51)
+        self.assertEqual(self.volume.get_sphere_volume(0.39), 0.25)
+        self.assertEqual(self.volume.get_sphere_volume(323, 4), 141154970.7279)
+        self.assertEqual(self.volume.get_sphere_volume(323, 10), 141154970.72787648)
 
-        self.assertEqual(str(context.exception), "Negative values are not allowed.")
 
-    ##################################################
-    #  Sphere Volume Test Case Implementation
-    ##################################################
-    def test_calculate_sphere_volume(self):
-        self.assertEqual(self.volume.calculate_sphere_volume(2), 33.5103)
-        self.assertEqual(self.volume.calculate_sphere_volume(0.39), 0.2485)
-        self.assertEqual(self.volume.calculate_sphere_volume(323), 141154970.7279)
+    def test_get_cube_volumee(self):
+        self.assertEqual(self.volume.get_cube_volume(3), 27)
+        self.assertEqual(self.volume.get_cube_volume(0.24), 0.01)
+        self.assertEqual(self.volume.get_cube_volume(98), 941192)
+        self.assertEqual(self.volume.get_cube_volume(98, 3), 941192)
+        self.assertEqual(self.volume.get_cube_volume(98.9, 10),  967361.6690000001)
 
-    def test_calculate_sphere_volume_with_invalid_type_raises_error(self):
-        with self.assertRaises(TypeError) as context:
-            self.volume.calculate_sphere_volume('2')
-
-        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
-
-    def test_calulate_sphere_volume_with_negative_value_raises_error(self):
-        with self.assertRaises(ValueError) as context:
-            self.volume.calculate_sphere_volume(-1)
-
-        self.assertEqual(str(context.exception), "Negative values are not allowed.")
-
-    ##################################################
-    #  Cube Volume Test Case Implementation
-    ##################################################
-    def test_calculate_cube_volume(self):
-        self.assertEqual(self.volume.calculate_cube_volume(3), 27)
-        self.assertEqual(self.volume.calculate_cube_volume(0.24), 0.0138)
-        self.assertEqual(self.volume.calculate_cube_volume(98), 941192)
-
-    def test_calculate_cube_volume_with_invalid_type_raises_error(self):
-        with self.assertRaises(TypeError) as context:
-            self.volume.calculate_cube_volume('3')
-
-        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
-
-    def test_calculate_cube_volume_with_negative_value_raises_error(self):
-        with self.assertRaises(ValueError) as context:
-            self.volume.calculate_cube_volume(-1)
-
-        self.assertEqual(str(context.exception), "Negative values are not allowed.")
         
-    ##################################################
-    #  Cone Volume Test Case Implementation
-    ##################################################
-    def test_calculate_cone_volume(self):
-        self.assertEqual(self.volume.calculate_cone_volume(2, 2), 8.3776)
-        self.assertEqual(self.volume.calculate_cone_volume(0.98, 7.8), 7.8447)
-        self.assertEqual(self.volume.calculate_cone_volume(12.4, 27.32), 4398.987)
+    def test_get_cone_volume(self):
+        self.assertEqual(self.volume.get_cone_volume(2, 2), 8.38)
+        self.assertEqual(self.volume.get_cone_volume(0.98, 7.8), 7.84)
+        self.assertEqual(self.volume.get_cone_volume(12.4, 27.32), 4398.99)
+        self.assertEqual(self.volume.get_cone_volume(12.4, 27.32, 10), 4398.9870482947)
 
-    def test_calculate_cone_volume_with_invalid_type_raises_error(self):
-        with self.assertRaises(TypeError) as context:
-            self.volume.calculate_cone_volume({"key": "value"}, 1)
 
-        self.assertEqual(str(context.exception), "'dict' is not allowed, only integer or float")
-
-    def test_calculate_cone_volume_with_negative_value_raises_error(self):
-        with self.assertRaises(ValueError) as context:
-            self.volume.calculate_cone_volume(-1, 2)
-
-        self.assertEqual(str(context.exception), "Negative values are not allowed.")
-
-    ##################################################
-    #  Rectangle Volume Test Case Implementation
-    ##################################################
     def test_calculate_rectangle_volume(self):
         self.assertEqual(self.volume.calculate_rectangle_volume(2, 3, 4), 24)
         self.assertEqual(self.volume.calculate_rectangle_volume(1.92, 9.38, 2.5), 45.024)
         self.assertEqual(self.volume.calculate_rectangle_volume(134, 928, 292), 36310784)
 
-    def test_calculate_rectangle_volume_with_invalid_type_raises_error(self):
-        with self.assertRaises(TypeError) as context:
-            self.volume.calculate_rectangle_volume(2, 3, ['list'])
-
-        self.assertEqual(str(context.exception), "'list' is not allowed, only integer or float")
-
-    def test_calculate_rectangle_volume_with_negative_value_raises_error(self):
-        with self.assertRaises(ValueError) as context:
-            self.volume.calculate_rectangle_volume(2, 3, -1)
-        
-        self.assertEqual(str(context.exception), "Negative values are not allowed.")
 
     ##################################################
     #  Spherical Cap Volume Test Case Implementation

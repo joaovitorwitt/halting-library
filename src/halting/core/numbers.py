@@ -376,15 +376,3 @@ class Numbers(BaseHalting):
         self.validate_instance(int, number)
         return_value = Algorithms().sieve_of_erastosthenes(number)
         return number not in return_value
-
-
-
-    # TODO
-    def check_if_number_is_multiple_of_another_number(self, x: int, y: int) -> bool:
-        """
-        This function checks wheter x is a proper multiple of y
-
-        A proper multiple of a number x is a number greater
-        than x and divisible by x
-        """
-        pass

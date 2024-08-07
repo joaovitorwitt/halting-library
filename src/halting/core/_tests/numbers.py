@@ -66,23 +66,19 @@ class NumbersTestCase(TestCase):
         pass
 
 
-    def test_convert_number_to_scientific_notaion(self):
+    def test_convert_number_to_scientific_notation(self):
         self.assertEqual(self.numbers.convert_number_to_scientific_notation(50000000), '5e7')
         self.assertEqual(self.numbers.convert_number_to_scientific_notation(45600000), '4.56e7')
         self.assertEqual(self.numbers.convert_number_to_scientific_notation(0.00000000098), '9.8e-10')
         self.assertEqual(self.numbers.convert_number_to_scientific_notation(120000000, notation_type='n'), '1.2 x 10^-8')
 
-    ######################################################
-    # Convert Decimal to Fraction Test Case
-    ######################################################
+
     def test_convert_decimal_to_fraction(self):
         self.assertEqual(self.numbers.convert_decimal_to_fraction(0.161616), '16/99')
         self.assertEqual(self.numbers.convert_decimal_to_fraction(4.555555), '41/9')
         self.assertEqual(self.numbers.convert_decimal_to_fraction(2.777777), '25/9')
 
-    ######################################################
-    # Is Number Prime Test Case
-    ######################################################
+    
     def test_is_number_prime(self):
         self.assertTrue(self.numbers.is_number_prime(113))
         self.assertTrue(self.numbers.is_number_prime(100003))
@@ -95,9 +91,7 @@ class NumbersTestCase(TestCase):
         self.assertFalse(self.numbers.is_number_prime(100004))
         self.assertFalse(self.numbers.is_number_prime(-100005))
 
-    ######################################################
-    # Is Number Composite Test Case
-    ######################################################
+
     def test_is_number_composite(self):
         self.assertTrue(self.numbers.is_number_composite(100000))
         self.assertTrue(self.numbers.is_number_composite(100001))
@@ -108,8 +102,6 @@ class NumbersTestCase(TestCase):
         self.assertFalse(self.numbers.is_number_composite(100003))
         self.assertFalse(self.numbers.is_number_composite(100043))
         self.assertFalse(self.numbers.is_number_composite(100057))
-    
-
     
 
 if __name__ == "__main__":

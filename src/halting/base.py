@@ -52,6 +52,18 @@ class BaseHalting:
         """
         return self.__dict__ == value.__dict__
     
+
+    # TODO: this is currently not working as expected
+    # lets say we have a method that takes three inputs
+    # and those three inputs are different when it comes 
+    # to their type
+    # first is int
+    # second is a float
+    # thrid is a string
+    # now when we call the validation passing the type of the input as key
+    # and the actual inputs as value.
+    # we should be able to validate by looping in the kwargs and 
+    # cheking each instance.
     def key_value_validation(self, **kwargs: Any) -> bool:
         """
         The purpose of this method is to validate the value and its
