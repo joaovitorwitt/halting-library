@@ -8,11 +8,11 @@ from src.halting import settings
 ##################################################
 # Area Formulas Implementation
 ##################################################
-class AreaFormulas(BaseHalting):
+class Area(BaseHalting):
     """
     This contains various methods used to calculate the area of different shapes.
     """
-    def calculate_rectangle_area(self, length: int | float, width: int | float) -> int | float:
+    def get_rectangle_area(self, length: int | float, width: int | float, rounding_factor: int = 2) -> int | float:
         """
         Calculates the area of a rectangle by multiplying the sides.
 
@@ -26,7 +26,7 @@ class AreaFormulas(BaseHalting):
         Example:
             >>> from src.halting.formulas.area import AreaFormulas
             >>> area = AreaFormulas()
-            >>> area.calculate_rectangle_area(12, 3)
+            >>> area.get_rectangle_area(12, 3)
             36
         """
         self.validate(length, width)
@@ -41,14 +41,13 @@ class AreaFormulas(BaseHalting):
         Args:
             base (int | float): The base of the triangle.
             height (int | float): The height of the triangle.
+            rounding_factor (int, optional): The number of decimal places the final result should have. Default is 2.
 
         Returns:
             int | float: The area of the triangle.
 
         Example:
-            >>> from src.halting.formulas.area import AreaFormulas
-            >>> area = AreaFormulas()
-            >>> area.calculate_triangle_area(2, 4)
+            >>> calculate_triangle_area(2, 4)
             2
         """
         self.validate(base, height)

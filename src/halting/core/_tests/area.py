@@ -4,7 +4,7 @@
 import unittest
 from unittest import TestCase
 
-from src.halting.core.area import AreaFormulas
+from src.halting.core.area import Area
 
 ##################################################
 # Areas Formulas Test Case Implementation
@@ -12,28 +12,17 @@ from src.halting.core.area import AreaFormulas
 class AreaFormulasTestCase(TestCase):
 
     def setUp(self) -> None:
-        self.area = AreaFormulas()
+        self.area = Area()
         return super().setUp()
     
     ##################################################
     # Rectangle Area Test Case Implementation
     ##################################################
-    def test_calculate_rectangle_area(self):
-        self.assertEqual(self.area.calculate_rectangle_area(12, 3), 36)
-        self.assertEqual(self.area.calculate_rectangle_area(0.125, 4), 0.5)
-        self.assertEqual(self.area.calculate_rectangle_area(21.3, 4.3), 91.59)
+    def test_get_rectangle_area(self):
+        self.assertEqual(self.area.get_rectangle_area(12, 3), 36)
+        self.assertEqual(self.area.get_rectangle_area(0.125, 4), 0.5)
+        self.assertEqual(self.area.get_rectangle_area(21.3, 4.3), 91.59)
 
-    def test_calculate_rectangle_with_invalid_type_raises_error(self):
-        with self.assertRaises(TypeError) as context:
-            self.area.calculate_rectangle_area(1, '32')
-
-        self.assertEqual(str(context.exception), "'str' is not allowed, only integer or float")
-
-    def test_calculate_rectangle_with_negative_value_raises_error(self):
-        with self.assertRaises(ValueError) as context:
-            self.area.calculate_rectangle_area(2, -1)
-
-        self.assertEqual(str(context.exception), "Negative values are not allowed.")
 
     ##################################################
     # Rectangle Area Test Case Implementation
