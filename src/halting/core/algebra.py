@@ -10,7 +10,7 @@ from src.halting.base import BaseHalting
 ##################################################
 # Algebra Class Implementation
 ##################################################
-class AlgebraFormulas(BaseHalting):
+class Algebra(BaseHalting):
     
     def calculate_exponent(self, base: int | float, exponent: int | float) -> int | float:
         """
@@ -24,9 +24,7 @@ class AlgebraFormulas(BaseHalting):
             int | float: The calculated exponent value.
 
         Example:
-            >>> from src.halting.formulas.algebra import AlgebraFormulas
-            >>> algebra = AlgebraFormulas()
-            >>> algebra.exponent_calculator(2, 3)
+            >>> exponent_calculator(2, 3)
             8
         """
         self.validate_instance((int, float), base, exponent)
