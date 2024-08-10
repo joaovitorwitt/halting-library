@@ -19,22 +19,22 @@ class Area(BaseHalting):
         Args:
             length (int | float): The length of the rectangle.
             width (int | float): The width of the width.
+            rounding_factor (int, optional): The number of decimal places the result should have. Default is 2.
 
         Returns:
             int | float: The calculated value for the rectangle area.
 
         Example:
-            >>> from src.halting.formulas.area import AreaFormulas
-            >>> area = AreaFormulas()
-            >>> area.get_rectangle_area(12, 3)
+            >>> get_rectangle_area(12, 3)
             36
         """
         self.validate(length, width)
 
         rectangle = width * length 
-        return round(rectangle, 4)
+        return round(rectangle, rounding_factor)
     
-    def calculate_triangle_area(self, base: int | float, height: int | float) -> int | float:
+
+    def get_triangle_area(self, base: int | float, height: int | float, rounding_factor: int = 2) -> int | float:
         """
         Calculates the area of a triangle.
 
@@ -47,15 +47,16 @@ class Area(BaseHalting):
             int | float: The area of the triangle.
 
         Example:
-            >>> calculate_triangle_area(2, 4)
+            >>> get_triangle_area(2, 4)
             2
         """
         self.validate(base, height)
 
-        triangle = (1*base*height) / 2
-        return round(triangle, 4)
+        triangle = (1 * base * height) / 2
+        return round(triangle, rounding_factor)
 
-    def calculate_trapezoid_area(self, base: int | float, small_base: int | float, height: int | float) -> int | float:
+
+    def get_trapezoid_area(self, base: int | float, small_base: int | float, height: int | float, rounding_factor: int = 2) -> int | float:
         """
         Calculate the area of a trapezoid.
 
@@ -68,33 +69,31 @@ class Area(BaseHalting):
             int | float: The calculated area for a trapezoid.
 
         Example:
-            >>> from src.halting.formulas.area import AreaFormulas
-            >>> area = AreaFormulas()
-            >>> area.calculate_trapezoid_area(3, 4, 6)
+            >>> get_trapezoid_area(3, 4, 6)
             21.0
         """
         self.validate(base, small_base, height)
 
         trapezoid = ((base + small_base) * height) / 2
-        return round(trapezoid, 4)
+        return round(trapezoid, rounding_factor)
     
-    def calculate_circle_area(self, radius: int | float) -> int | float:
+    
+    def get_circle_area(self, radius: int | float, rounding_factor: int = 2) -> int | float:
         """
         Calculate the area of a circle.
 
         Args:
             radius (int | float): The radius of the circle.
+            rounding_factor (int, optional): The number of decimal places the final result should have. Default is 2.
 
         Returns:
             int | float: The calculated area for the circle.
 
         Example:
-            >>> from src.halting.formulas.area import AreaFormulas
-            >>> area = AreaFormulas()
-            >>> area.calculate_circle_area(3)
-            28.2743
+            >>> get_circle_area(3)
+            28.27
         """
         self.validate(radius)
 
         circle = settings.PI * pow(radius, 2)
-        return round(circle, 4)
+        return round(circle, rounding_factor)
