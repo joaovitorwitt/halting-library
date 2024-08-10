@@ -29,6 +29,7 @@ class Area(BaseHalting):
             36
         """
         self.validate(length, width)
+        self.validate_instance(int, rounding_factor)
 
         rectangle = width * length 
         return round(rectangle, rounding_factor)
@@ -51,6 +52,7 @@ class Area(BaseHalting):
             2
         """
         self.validate(base, height)
+        self.validate_instance(int, rounding_factor)
 
         triangle = (1 * base * height) / 2
         return round(triangle, rounding_factor)
@@ -73,6 +75,7 @@ class Area(BaseHalting):
             21.0
         """
         self.validate(base, small_base, height)
+        self.validate_instance(int, rounding_factor)
 
         trapezoid = ((base + small_base) * height) / 2
         return round(trapezoid, rounding_factor)
@@ -94,6 +97,7 @@ class Area(BaseHalting):
             28.27
         """
         self.validate(radius)
+        self.validate_instance(int, rounding_factor)
 
         circle = settings.PI * pow(radius, 2)
         return round(circle, rounding_factor)

@@ -32,7 +32,7 @@ class BaseHalting:
             if arg < 0:
                 raise ValueError("Negative values are not allowed.")
 
-    def validate_instance(self, instance_type: tuple, *args) -> Any:
+    def validate_instance(self, instance_type: tuple | Any, *args: Any) -> Any:
         for arg in args:
             if not isinstance(arg, (instance_type)):
                 raise TypeError(f"'{type(arg).__name__}' is not allowed.")

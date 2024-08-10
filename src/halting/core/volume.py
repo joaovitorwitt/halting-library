@@ -56,6 +56,7 @@ class Volume(BaseHalting):
             113.04
         """
         self.validate_instance((int, float), radius)
+        self.validate_instance(int, rounding_factor)
 
         sphere = (4 * settings.PI * (pow(radius, 3))) / 3
         return round(sphere, rounding_factor)
@@ -76,7 +77,8 @@ class Volume(BaseHalting):
             >>> get_cube_volume(3)
             27
         """
-        self.validate(edge_length)
+        self.validate_instance((int, float), edge_length)
+        self.validate_instance(int, rounding_factor)
 
         cube = pow(edge_length, 3)
         return round(cube, rounding_factor)
@@ -100,6 +102,7 @@ class Volume(BaseHalting):
         """
         self.validate_instance((int, float), base_radius)
         self.validate_instance((int, float), height)
+        self.validate_instance(int, rounding_factor)
 
         cone_formula = (settings.PI * pow(base_radius, 2) * height) / 3
         return round(cone_formula, rounding_factor)
@@ -125,6 +128,7 @@ class Volume(BaseHalting):
         self.validate_instance((int, float), length)
         self.validate_instance((int, float), height)
         self.validate_instance((int, float), width)
+        self.validate_instance((int), rounding_factor)
 
         rectangle_formula = length * height * width
         return round(rectangle_formula, rounding_factor)
@@ -148,6 +152,7 @@ class Volume(BaseHalting):
             16.75516
         """
         self.validate(height, ball_radius)
+        self.validate_instance(int, rounding_factor)
 
         spherical_cap = (settings.PI / 3) * pow(height, 2) * (3*ball_radius - height)
         return round(spherical_cap, rounding_factor)
@@ -170,6 +175,7 @@ class Volume(BaseHalting):
             58.64
         """
         self.validate(base_radius, height)
+        self.validate_instance(int, rounding_factor)
 
         capsule = settings.PI * pow(base_radius, 2) * (((4/3)* base_radius) + height)
         return round(capsule, rounding_factor)
@@ -193,6 +199,7 @@ class Volume(BaseHalting):
             33.5103            
         """
         self.validate(axis_a, axis_b, axis_c)
+        self.validate_instance(int, rounding_factor)
 
         ellipsoid = (4 * settings.PI * axis_a * axis_b * axis_c) / 3
         return round(ellipsoid, rounding_factor)
