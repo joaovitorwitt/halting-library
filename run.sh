@@ -26,7 +26,7 @@ case $1 in
         echo "Running coverage..."
 
         python -m coverage run -m unittest -f ${TESTS}
-        python -m coverage report
+        python -m coverage report -m
         EXIT_CODE=$?
         # coverage measurament
         # report
