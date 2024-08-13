@@ -12,9 +12,9 @@ from src.halting.base import BaseHalting
 ##################################################
 class Algebra(BaseHalting):
     
-    def calculate_exponent(self, base: int | float, exponent: int | float) -> int | float:
+    def exponent(self, base: int | float, exponent: int | float) -> int | float:
         """
-        Calculatest the power of a real number.
+        Calculatest the power of a number based on an exponent.
 
         Args:
             base (int | float): The base number
@@ -32,6 +32,7 @@ class Algebra(BaseHalting):
         result = pow(base, exponent)
         return result
 
+
     def square_root(self, value: int | float) -> int | float:
         """
         Calculates the square root of a given number.
@@ -43,15 +44,14 @@ class Algebra(BaseHalting):
             int | float: The square root of the number.
 
         Example:
-            >>> from src.halting.formulas.algebra import AlgebraFormulas
-            >>> algebra = AlgebraFormulas()
-            >>> algebra.square_root(25)
+            >>> square_root(25)
             5
         """
         self.validate(value)
 
         square_root = sqrt(value)
         return square_root
+
 
     def cubic_root(self, value: int | float) -> int | float:
         """
@@ -64,16 +64,16 @@ class Algebra(BaseHalting):
             int | float: The cubic root for the given number.
 
         Example:
-            >>> from src.halting.formulas.algebra import AlgebraFormulas
-            >>> algebra = AlgebraFormulas()
-            >>> algebra.cubic_root()
+            >>> cubic_root(27)
+            3
         """
         self.validate_instance((int, float), value)
 
         cubic_root = cbrt(value)
         return cubic_root
     
-    def calculate_absolute_value(self, number: int | float) -> int | float:
+
+    def absolute_value(self, number: int | float) -> int | float:
         """
         Calculates the absolute value of a number, that is, the value without regarding its sign.
 
@@ -84,9 +84,8 @@ class Algebra(BaseHalting):
             int | float: The absolute value of the number.
 
         Example:
-            >>> from src.halting.formulas.algebra import AlgebraFormulas
-            >>> algebra = AlgebraFormulas()
-            >>> algebra.calculate_absolute_value(-3)
+            >>> absolute_value(-3)
+            3
         """
         self.validate_instance((int, float), number)
 
@@ -94,7 +93,8 @@ class Algebra(BaseHalting):
         return absolute_value
 
 
-
+# https://www.calculatorsoup.com/calculators/algebra/
+# logarithmic method
 # Least commom multiple
 # adding fractions
 # subtracting fractions

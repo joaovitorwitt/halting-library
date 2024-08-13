@@ -6,22 +6,22 @@ from unittest import TestCase
 
 from src.halting.core.algebra import Algebra
 
-##################################################
-# Algebra Test Case Implementation
-##################################################
-class AlgebraFormulasTestCase(TestCase):
+###########################################################################
+# Implementation
+###########################################################################
+class AlgebraTestCase(TestCase):
 
     def setUp(self) -> None:
         self.algebra = Algebra()
         return super().setUp()
     
 
-    def test_calculate_exponent(self):
-        self.assertEqual(self.algebra.calculate_exponent(2, 5), 32)
-        self.assertEqual(self.algebra.calculate_exponent(23, 2), 529)
-        self.assertEqual(self.algebra.calculate_exponent(10, 0), 1)
-        self.assertEqual(self.algebra.calculate_exponent(5, -2), 0.04)
-        self.assertEqual(self.algebra.calculate_exponent(-5, 3), -125)
+    def test_exponent(self):
+        self.assertEqual(self.algebra.exponent(2, 5), 32)
+        self.assertEqual(self.algebra.exponent(23, 2), 529)
+        self.assertEqual(self.algebra.exponent(10, 0), 1)
+        self.assertEqual(self.algebra.exponent(5, -2), 0.04)
+        self.assertEqual(self.algebra.exponent(-5, 3), -125)
 
 
     def test_square_root(self):
@@ -37,9 +37,9 @@ class AlgebraFormulasTestCase(TestCase):
 
 
     def test_absolute_value(self):
-        self.assertEqual(self.algebra.calculate_absolute_value(-2928), 2928)
-        self.assertEqual(self.algebra.calculate_absolute_value(-9), 9)
-        self.assertEqual(self.algebra.calculate_absolute_value(928), 928)
+        self.assertEqual(self.algebra.absolute_value(-2928), 2928)
+        self.assertEqual(self.algebra.absolute_value(-9), 9)
+        self.assertEqual(self.algebra.absolute_value(928), 928)
 
 
 if __name__ == "__main__":
