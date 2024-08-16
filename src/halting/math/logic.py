@@ -10,7 +10,8 @@ from src.halting import settings
 ###########################################################################
 class Logic(BaseHalting):
 
-    def proposition(self, first: int, operation: str, second: int) -> bool:
+
+    def proposition(self, expression: str) -> bool:
         """
         In math, proposition is any statement that can be classified as either True or
         False. 
@@ -19,50 +20,65 @@ class Logic(BaseHalting):
         can be either an equal sign, different sign, greater than sign.
 
         Args:
-            first (int): The first element.
-            operation (str): The operation that will be applied with both elements.
-            second (int): The second element.
+            expression (str): The expression
 
         Returns:
             bool: Boolean indicating whether the proposition is True of False.
 
         Example:
-            >>> proposition(4, "!=", 5)
+            >>> proposition("4 != 5")
             True
 
-            >>> proposition(9, ">", 2)
+            >>> proposition("9 > 2")
             True
 
-            >>> proposition(9, "=", 5)
+            >>> proposition("9 = 5")
             False
         """
-        self.validate_instance((int, float), second, first)
+        self.validate_instance((str), expression)
+        token = expression.split()
 
-        if operation not in settings.LOGIC_OPERATIONS:
-            raise ValueError(f"Invalid operator: {operation}")
+        if len(token) == 3:
+            return self._solve_expression(token[0], token[1], token[2])
         
-        if operation == "=":
+        raise ValueError(f"Invalid expression: {expression}")
+        
+    def _solve_expression(self, first: str, operator: str, second: str) -> bool:
+        """
+        This private method is used to solve logical operations like equal, different,
+        greater than, less than, and so on.
+
+        Args:
+            first (str): The first element of the operation
+            operator (str): The operator used in the expression.
+            second (str): The second element of the operation.
+
+        Returns:
+            bool: Boolean value indicating whether the expression is True or False.
+        """
+        if operator not in settings.LOGIC_OPERATORS:
+            raise ValueError(f"Invalid operator: {operator}")
+        
+        if operator == "=":
             return first == second
         
-        if operation == "!=":
+        if operator == "!=":
             return first != second
         
-        if operation == ">":
+        if operator == ">":
             return first > second
         
-        if operation == "<":
+        if operator == "<":
             return first < second
         
-        if operation == ">=":
+        if operator == ">=":
             return first >= second
         
-        if operation == "<=":
+        if operator == "<=":
             return first <= second
         
+        raise ValueError(f"Invalid operator: {operator}")
 
-        
-
-        
 
 
 
